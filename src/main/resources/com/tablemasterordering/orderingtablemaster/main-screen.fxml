@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane id="main-area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #252836;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.MainController">
+   <children>
+      <VBox alignment="CENTER" layoutX="-8.0" style="-fx-background-color: #1F1D2B;" stylesheets="@styles.css">
+         <children>
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Logo_Icon.png" />  
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <StackPane layoutX="20.0" layoutY="106.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fx:id="navHomeBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
+                  <ImageView fx:id="navHomeInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-home-60.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="navHomeActive" fitHeight="35.0" fitWidth="35.0" layoutX="30.0" layoutY="30.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+                     <image>
+                        <Image url="@../images/icons8-home-60%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <StackPane layoutX="40.0" layoutY="82.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fx:id="navDashboardBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
+                  <ImageView fx:id="navDashboardInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-dashboard-layout-60.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="navDashboardActive" fitHeight="35.0" fitWidth="35.0" layoutX="30.0" layoutY="30.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+                     <image>
+                        <Image url="@../images/icons8-dashboard-layout-60%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <StackPane layoutX="40.0" layoutY="182.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fx:id="navMessagesBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
+                  <ImageView fx:id="navMessagesInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-envelope-60.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="navMessagesActive" fitHeight="35.0" fitWidth="35.0" layoutX="30.0" layoutY="30.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+                     <image>
+                        <Image url="@../images/icons8-envelope-60%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <StackPane layoutX="40.0" layoutY="382.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fx:id="navNotificationsBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
+                  <ImageView fx:id="navNotificationsInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-notification-60.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="navNotificationsActive" fitHeight="35.0" fitWidth="35.0" layoutX="30.0" layoutY="30.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+                     <image>
+                        <Image url="@../images/icons8-notification-60%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <StackPane layoutX="40.0" layoutY="282.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <Rectangle fx:id="navSettingsBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
+                  <ImageView fx:id="navSettingsInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-settings-60.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="navSettingsActive" fitHeight="35.0" fitWidth="35.0" layoutX="30.0" layoutY="30.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+                     <image>
+                        <Image url="@../images/icons8-settings-60%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <StackPane layoutX="40.0" layoutY="482.0" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" onMouseClicked="#exitApp" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-exit-60.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="10.0" right="5.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
