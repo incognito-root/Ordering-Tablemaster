@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/controllers/HomeScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/home-screen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/controllers/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/main-screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/main-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "HomeScreenComponent",
+    "git-widget-placeholder": "DashboardComponent",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/ayaan/MyProjects/OnlineOrdering/Ordering-Tablemaster",
     "node.js.detected.package.eslint": "true",
@@ -68,7 +67,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36091954",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -101,7 +100,11 @@
       <workItem from="1711428030901" duration="1433000" />
       <workItem from="1711438143459" duration="235000" />
       <workItem from="1711450398120" duration="113000" />
-      <workItem from="1711450924867" duration="8774000" />
+      <workItem from="1711450924867" duration="10240000" />
+      <workItem from="1711604939912" duration="3283000" />
+      <workItem from="1711623083490" duration="144000" />
+      <workItem from="1711623362054" duration="8597000" />
+      <workItem from="1711762729979" duration="2337000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #252836;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fillWidth="false" prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="transparent-background" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+               <styleClass>
+                  <String fx:value="text-main" />
+                  <String fx:value="h1" />
+               </styleClass>
+            </Text>
+            <Line endX="677.878662109375" endY="-1.6066012382507324" startX="-100.0" stroke="#343848" strokeWidth="3.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Line>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <AnchorPane minHeight="180.0" minWidth="270.0" prefHeight="180.0" prefWidth="270.0" styleClass="card-main">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@../images/Mask%20group.png" />
+                           </image></ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Orders" AnchorPane.bottomAnchor="69.66796875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="110.0">
+                           <styleClass>
+                              <String fx:value="text-secondary" />
+                              <String fx:value="text-body" />
+                           </styleClass></Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1500 Orders" AnchorPane.bottomAnchor="69.66796875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20590.244140625" AnchorPane.topAnchor="55.0">
+                           <styleClass>
+                              <String fx:value="text-main" />
+                              <String fx:value="h2" />
+                           </styleClass></Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="180.0" minWidth="480.0" prefHeight="180.0" prefWidth="500.0" styleClass="card-main">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@../images/Mask%20group-heart.png" />
+                           </image>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Orders" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="361.6796875" AnchorPane.topAnchor="110.0">
+                           <styleClass>
+                              <String fx:value="text-secondary" />
+                              <String fx:value="text-body" />
+                           </styleClass>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="300 / 350" AnchorPane.bottomAnchor="128.51171875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="349.9033203125" AnchorPane.topAnchor="55.0">
+                           <styleClass>
+                              <String fx:value="text-main" />
+                              <String fx:value="h2" />
+                           </styleClass>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: italic;" text="Free Rewards" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="357.0" AnchorPane.topAnchor="15.0">
+                           <styleClass>
+                              <String fx:value="text-secondary" />
+                              <String fx:value="body-smaller" />
+                           </styleClass>
+                        </Text>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="20.0">
+                           <image>
+                              <Image url="@../images/Frame%201.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="62.0">
+                           <image>
+                              <Image url="@../images/Frame%202.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <TableView>
+              <columns>
+                <TableColumn editable="false" maxWidth="170.0" prefWidth="170.0" resizable="false" text="Date" />
+                <TableColumn editable="false" maxWidth="150.0" prefWidth="150.0" text="Quantity" />
+                  <TableColumn editable="false" prefWidth="230.0" text="Total Payment" />
+                  <TableColumn editable="false" prefWidth="210.0" text="Status" />
+              </columns>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="839.0" layoutY="30.0" prefHeight="680.0" prefWidth="321.0" spacing="150.0" styleClass="transparent-background" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="839.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="card-main">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Most Ordered" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <styleClass>
+                        <String fx:value="text-main" />
+                        <String fx:value="h2" />
+                     </styleClass>
+                  </Text>
+                  <Line endX="167.6147918701172" endY="-0.41418302059173584" startX="-100.0" stroke="#343848" strokeWidth="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" styleClass="card-main">
+               <children>
+                  <Text layoutX="23.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Most Ordered">
+                     <styleClass>
+                        <String fx:value="text-main" />
+                        <String fx:value="h2" />
+                     </styleClass>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children></VBox>
+   </children>
+</AnchorPane>
