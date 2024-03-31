@@ -3,7 +3,7 @@
 }
 
 .transparent-background {
-    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-color: rgba(0, 0, 0, 0);
 }
 
 .card-main {
@@ -64,4 +64,8 @@
     -fx-font-weight: 500;
     -fx-alignment: center-left;
     -fx-background-color: transparent;
+}
+
+.circular-image {
+    -fx-background-radius: 35px;
 }

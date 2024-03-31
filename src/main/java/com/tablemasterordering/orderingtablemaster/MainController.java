@@ -1,15 +1,20 @@
-package com.tablemasterordering.orderingtablemaster.controllers;
+package com.tablemasterordering.orderingtablemaster;
 
+import com.tablemasterordering.orderingtablemaster.models.NavigationMenuItemModel;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 
-import java.util.Arrays;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainController {
+
+    @FXML
+    private BorderPane mainBorderPane;
 
     @FXML
     private ImageView navDashboardActive, navDashboardInactive, navHomeActive, navHomeInactive,
@@ -22,7 +27,10 @@ public class MainController {
 
     private final Map<String, String[]> navItems = new HashMap<>();
 
+    private final SceneSwitcher sceneSwitcher;
+
     public MainController() {
+        sceneSwitcher = new SceneSwitcher();
         initNavigationItems();
     }
 
@@ -32,7 +40,7 @@ public class MainController {
     }
 
     @FXML
-    void navigateToPage(MouseEvent event) {
+    void navigateToPage(MouseEvent event) throws IOException {
         String sourceId = ((ImageView) event.getSource()).getId();
         if (sourceId == null) return;
 
@@ -40,14 +48,16 @@ public class MainController {
 
         String[] relatedItems = navItems.get(sourceId);
         if (relatedItems != null) {
-            ImageView activeImageView = (ImageView) event.getSource();
-            ImageView inactiveImageView = (ImageView) navDashboardInactive.getScene().lookup("#" + relatedItems[0]);
-            Rectangle backgroundRectangle = (Rectangle) navDashboardBackground.getScene().lookup("#" + relatedItems[1]);
+            NavigationMenuItemModel navigationMenuItemModel = new NavigationMenuItemModel();
+            navigationMenuItemModel.setInactiveImageView((ImageView) event.getSource());
+            navigationMenuItemModel.setActiveImageView((ImageView) navSettingsInactive.getScene().lookup("#" + relatedItems[0]));
+            navigationMenuItemModel.setBackgroundRectangle((Rectangle) navSettingsInactive.getScene().lookup("#" + relatedItems[1]));
 
-            if (activeImageView.isVisible()) {
-                activeImageView.setVisible(false);
-                inactiveImageView.setVisible(true);
-                backgroundRectangle.setVisible(true);
+            if (navigationMenuItemModel.getInactiveImageView().isVisible()) {
+                navigationMenuItemModel.getActiveImageView().setVisible(true);
+                navigationMenuItemModel.getBackgroundRectangle().setVisible(true);
+
+                sceneSwitcher.switchScene(navigationMenuItemModel, mainBorderPane);
             }
         }
     }

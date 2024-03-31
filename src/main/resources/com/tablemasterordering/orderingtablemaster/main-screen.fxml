@@ -3,13 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #252836;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.controllers.MainController">
+<BorderPane fx:id="mainBorderPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #252836;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.MainController">
    <left>
       <VBox alignment="CENTER" style="-fx-background-color: #1F1D2B;" stylesheets="@styles.css" BorderPane.alignment="CENTER">
          <children>
@@ -114,7 +113,4 @@
          </opaqueInsets>
       </VBox>
    </left>
-   <right>
-      <AnchorPane prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #252836;" BorderPane.alignment="CENTER" />
-   </right>
 </BorderPane>
