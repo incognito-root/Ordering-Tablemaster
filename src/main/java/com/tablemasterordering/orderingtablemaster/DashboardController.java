@@ -59,7 +59,6 @@ public class DashboardController {
             DetailsPaneController paneController = loader.getController();
 
             if (details instanceof DiscountModel) {
-                System.out.println("here");
                 ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
                 executorService.schedule(() -> Platform.runLater(() -> paneController.getDetailsPaneArrow().setVisible(true)), 1, TimeUnit.SECONDS);
             }
