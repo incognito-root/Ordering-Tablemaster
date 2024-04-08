@@ -24,6 +24,12 @@
     -fx-font-weight: 500;
 }
 
+.primary-color-text {
+    -fx-text-fill: #EA6969;
+    -fx-fill: #D9D9D9;
+    -fx-font-weight: 500;
+}
+
 .h1 {
     -fx-font-size: 36px;
 }
@@ -34,6 +40,10 @@
 
 .text-body {
     -fx-font-size: 16px;
+}
+
+.text-body-medium {
+    -fx-font-size: 18px;
 }
 
 .body-smaller {
@@ -116,11 +126,26 @@
     -fx-border-radius: 0;
 }
 
+.primary-background {
+    -fx-background-color: #EA6969;
+}
+
+.secondary-background {
+    -fx-background-color: #444858;
+}
+
 .input-field {
-    -fx-background-color: #343848;
+    -fx-background-color: #444858;
     -fx-padding: 15px;
     -fx-background-radius: 15px;
     -fx-min-width: 300;
+}
+
+.input-field-small {
+    -fx-background-color: #444858;
+    -fx-padding: 10px;
+    -fx-background-radius: 15px;
+    -fx-min-width: 255;
 }
 
 .scroll-pane .viewport {
@@ -134,12 +159,13 @@
 
 .scroll-bar:vertical {
     -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-padding: 0;
 }
 
 .scroll-bar:vertical .track {
-    -fx-background-color: #1F1D2B;
-    -fx-border-color: #1F1D2B;
     -fx-background-radius: 3px;
+    -fx-min-width: 10;
+    -fx-max-width: 10;
 }
 
 .scroll-bar:vertical .thumb {
@@ -151,3 +177,25 @@
 /*    -fx-background-color: rgba(0, 0, 0, 0);*/
 /*    -fx-border-color: rgba(0, 0, 0, 0);*/
 /*}*/
+.cart-qty-button {
+    -fx-background-color: #444858;
+}
+
+.primary-button {
+    -fx-pref-width: 420;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+
+.secondary-no-fill-button {
+    -fx-padding: 15;
+    -fx-background-radius: 15;
+    -fx-border-color: #444858;
+    -fx-border-radius: 15;
+}
+
+.circular-image {
+    -fx-padding: 12;
+    -fx-background-radius: 55;
+    -fx-background-color: #000000;
+}

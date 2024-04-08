@@ -8,52 +8,58 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1180.0" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #252836;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.HomeController">
-    <children>
-        <TextField editable="false" text="Table Master" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-            <styleClass>
-                <String fx:value="transparent-background" />
-                <String fx:value="h1" />
-                <String fx:value="text-main" />
-            </styleClass>
-        </TextField>
-        <TabPane prefHeight="590.0" prefWidth="1180.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="130.0">
-            <tabs>
-                <Tab text="Fast Food">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                          <ScrollPane hbarPolicy="NEVER" prefHeight="500.0" prefWidth="1180.0" styleClass="transparent-background" stylesheets="@styles.css" AnchorPane.topAnchor="30.0">
-                              <content>
-                                  <TilePane fx:id="menuItemsArea" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1150.0" stylesheets="@styles.css">
-                                      <styleClass>
-                                          <String fx:value="transparent-background" />
-                                          <String fx:value="menu-item-area-main" />
-                                      </styleClass>
-                                  </TilePane>
-                              </content>
-                          </ScrollPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-                </Tab>
-                <Tab text="Continental" />
-            </tabs>
-        </TabPane>
-        <Rectangle arcHeight="27.0" arcWidth="27.0" fill="#343848" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="30.0" />
-        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="410.0" AnchorPane.topAnchor="40.0">
-            <image>
-                <Image url="@../images/search-icon.png" />
-            </image>
-        </ImageView>
-        <TextField promptText=" Enter" styleClass="input-field" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="30.0" />
-        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="32.0">
-            <image>
-                <Image url="@../images/cart2.png" />
-            </image>
-        </ImageView>
-    </children>
-</AnchorPane>
+
+<StackPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.HomeController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1180.0" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #252836;" stylesheets="@styles.css">
+          <children>
+              <TextField editable="false" text="Table Master" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <styleClass>
+                      <String fx:value="transparent-background" />
+                      <String fx:value="h1" />
+                      <String fx:value="text-main" />
+                  </styleClass>
+              </TextField>
+              <TabPane prefHeight="590.0" prefWidth="1180.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="130.0">
+                  <tabs>
+                      <Tab text="Fast Food">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                                <ScrollPane hbarPolicy="NEVER" prefHeight="500.0" prefWidth="1180.0" styleClass="transparent-background" stylesheets="@styles.css" AnchorPane.topAnchor="30.0">
+                                    <content>
+                                        <TilePane fx:id="menuItemsArea" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1150.0" stylesheets="@styles.css">
+                                            <styleClass>
+                                                <String fx:value="transparent-background" />
+                                                <String fx:value="menu-item-area-main" />
+                                            </styleClass>
+                                        </TilePane>
+                                    </content>
+                                </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                      </Tab>
+                      <Tab text="Continental" />
+                  </tabs>
+              </TabPane>
+              <Rectangle arcHeight="27.0" arcWidth="27.0" fill="#444858" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="30.0" />
+              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="410.0" AnchorPane.topAnchor="40.0">
+                  <image>
+                      <Image url="@../images/search-icon.png" />
+                  </image>
+              </ImageView>
+              <TextField promptText=" Enter" styleClass="input-field" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="30.0" />
+              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="32.0">
+                  <image>
+                      <Image url="@../images/cart2.png" />
+                  </image>
+              </ImageView>
+          </children>
+      </AnchorPane>
+   </children>
+</StackPane>

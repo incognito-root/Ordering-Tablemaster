@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="420.0" styleClass="transparent-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.CartMenuItemController">
+   <children>
+      <StackPane layoutY="10.0" styleClass="circular-image" AnchorPane.topAnchor="10.0">
+         <children>
+            <ImageView fx:id="menuItemImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/burger-demo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
+      <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="100.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="15.0">
+         <styleClass>
+            <String fx:value="text-body-medium" />
+            <String fx:value="text-main" />
+         </styleClass>
+      </Text>
+      <Text fx:id="menuItemPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs.  250" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="50.0">
+         <styleClass>
+            <String fx:value="text-body" />
+            <String fx:value="text-secondary" />
+         </styleClass>
+      </Text>
+      <Label fx:id="menuItemQuantity" minHeight="60.0" minWidth="60.0" style="-fx-background-radius: 12;" text="1" textAlignment="CENTER" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="15.0">
+         <styleClass>
+            <String fx:value="transparent-background" />
+            <String fx:value="h2" />
+            <String fx:value="text-main" />
+         </styleClass></Label>
+      <ImageView fx:id="menuItemDeleteButton" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="45.0">
+         <image>
+            <Image url="@../images/Delete_Button.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="menuItemTotalPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="10.0">
+         <styleClass>
+            <String fx:value="text-body-medium" />
+            <String fx:value="text-main" />
+         </styleClass>
+      </Text>
+   </children>
+</AnchorPane>
