@@ -1,32 +1,39 @@
 package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.models.MenuItemModel;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.TilePane;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class HomeController {
+public class HomeController implements Initializable {
 
     @FXML
     TilePane menuItemsArea;
 
+    @FXML
+    AnchorPane mainHomeArea;
+
+    @FXML
+    StackPane mainStackPane;
+
+    private AnchorPane mainCartArea;
+
     public HomeController() {
-        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.schedule(() -> Platform.runLater(() -> {
-            try {
-                fillData();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }), 3, TimeUnit.SECONDS);
+
     }
 
     public void fillData() throws IOException {
@@ -57,6 +64,42 @@ public class HomeController {
 
             paneController.setData(String.valueOf(details.getPrice()), details.getTitle());
             menuItemsArea.getChildren().add(anchorPane);
+        }
+    }
+
+    private void initializeCart() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("cart.fxml"));
+        mainCartArea = loader.load();
+
+        mainCartArea.setVisible(false);
+        mainStackPane.getChildren().add(mainCartArea);
+    }
+
+    public void showCart() {
+        mainCartArea.setVisible(true);
+        mainCartArea.setTranslateX(mainCartArea.getBoundsInParent().getWidth());
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), mainCartArea);
+        transition.setToX(0);
+        transition.play();
+
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        executorService.schedule(() -> Platform.runLater(() -> {
+
+            Color color = new Color(0, 0, 0, 0.6);
+            BackgroundFill fill = new BackgroundFill(color, null, null);
+            Background background = new Background(fill);
+            mainCartArea.setBackground(background);
+
+        }), 1, TimeUnit.SECONDS);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            this.fillData();
+            initializeCart();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
