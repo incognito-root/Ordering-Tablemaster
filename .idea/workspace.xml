@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +133,7 @@
       <workItem from="1712396527696" duration="4467000" />
       <workItem from="1712480099590" duration="4401000" />
       <workItem from="1712567536465" duration="5042000" />
-      <workItem from="1712718372409" duration="10238000" />
+      <workItem from="1712718372409" duration="11610000" />
     </task>
     <servers />
   </component>
