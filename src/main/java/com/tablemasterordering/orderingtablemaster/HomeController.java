@@ -1,7 +1,6 @@
 package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.models.MenuItemModel;
-import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -62,7 +61,7 @@ public class HomeController implements Initializable {
             AnchorPane anchorPane = loader.load();
             MenuItemController paneController = loader.getController();
 
-            paneController.setData(String.valueOf(details.getPrice()), details.getTitle());
+            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemTitle());
             menuItemsArea.getChildren().add(anchorPane);
         }
     }

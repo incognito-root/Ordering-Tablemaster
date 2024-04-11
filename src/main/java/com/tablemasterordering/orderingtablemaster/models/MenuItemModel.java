@@ -1,36 +1,38 @@
 package com.tablemasterordering.orderingtablemaster.models;
 
 public class MenuItemModel {
-    private String title;
-    private double price;
-    private String imageUrl;
+    private String menuItemTitle;
+    private double menuItemPrice;
+    private String menuItemImageUrl;
+    private String menuItemDescription;
+    private String menuItemCategory;
 
-    public MenuItemModel(String title, double price) {
-        this.title = title;
-        this.price = price;
+    public MenuItemModel(String menuItemTitle, double menuItemPrice) {
+        this.menuItemTitle = menuItemTitle;
+        this.menuItemPrice = menuItemPrice;
     }
 
-    public String getTitle() {
-        return title;
+    public String getMenuItemTitle() {
+        return menuItemTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setMenuItemTitle(String menuItemTitle) {
+        this.menuItemTitle = menuItemTitle;
     }
 
-    public double getPrice() {
-        return price;
+    public double getMenuItemPrice() {
+        return menuItemPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setMenuItemPrice(double menuItemPrice) {
+        this.menuItemPrice = menuItemPrice;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getMenuItemImageUrl() {
+        return menuItemImageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setMenuItemImageUrl(String menuItemImageUrl) {
+        this.menuItemImageUrl = menuItemImageUrl;
     }
 }
