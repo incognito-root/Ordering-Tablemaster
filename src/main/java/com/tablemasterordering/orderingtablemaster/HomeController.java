@@ -1,5 +1,6 @@
 package com.tablemasterordering.orderingtablemaster;
 
+import com.tablemasterordering.orderingtablemaster.api_service.MenuService;
 import com.tablemasterordering.orderingtablemaster.models.MenuItemModel;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -31,37 +32,20 @@ public class HomeController implements Initializable {
 
     private AnchorPane mainCartArea;
 
+    ArrayList<MenuItemModel> allMenuItems;
+
     public HomeController() {
 
     }
 
     public void fillData() throws IOException {
-        ArrayList<MenuItemModel> dataList = new ArrayList<>();
 
-        MenuItemModel m1 = new MenuItemModel("burger", 12);
-        MenuItemModel m2 = new MenuItemModel("pizza", 15);
-        MenuItemModel m3 = new MenuItemModel("shake", 20);
-        MenuItemModel m4 = new MenuItemModel("pizza burger", 30);
-        MenuItemModel m5 = new MenuItemModel("burger", 12);
-        MenuItemModel m6 = new MenuItemModel("pizza", 15);
-        MenuItemModel m7 = new MenuItemModel("shake", 20);
-        MenuItemModel m8 = new MenuItemModel("pizza burger", 30);
-
-        dataList.add(m1);
-        dataList.add(m2);
-        dataList.add(m3);
-        dataList.add(m4);
-        dataList.add(m5);
-        dataList.add(m6);
-        dataList.add(m7);
-        dataList.add(m8);
-
-        for (MenuItemModel details : dataList) {
+        for (MenuItemModel details : allMenuItems) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
             AnchorPane anchorPane = loader.load();
             MenuItemController paneController = loader.getController();
 
-            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemTitle());
+            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemName(), details.getMenuItemImage());
             menuItemsArea.getChildren().add(anchorPane);
         }
     }
@@ -95,6 +79,10 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            MenuService menuService = new MenuService();
+            menuService.setAllMenuItems();
+            allMenuItems  = menuService.getAllMenuItems();
+
             this.fillData();
             initializeCart();
         } catch (IOException e) {

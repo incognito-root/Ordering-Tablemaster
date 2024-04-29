@@ -1,9 +1,18 @@
 package com.tablemasterordering.orderingtablemaster;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MenuItemController {
     @FXML
@@ -15,8 +24,10 @@ public class MenuItemController {
     @FXML
     private Text menuItemTitle;
 
-    public void setData(String menuItemPrice, String menuItemTitle) {
-//        menuItemImage.setImage(menuItem);
+    private final String path = "/Users/ayaan/MyProjects/Ordering-Tablemaster";
+
+    public void setData(String menuItemPrice, String menuItemTitle, String menuItemImage) throws FileNotFoundException {
+        this.setMenuItemImage(menuItemImage);
         this.menuItemPrice.setText(menuItemPrice);
         this.menuItemTitle.setText(menuItemTitle);
     }
@@ -25,8 +36,12 @@ public class MenuItemController {
         return menuItemImage;
     }
 
-    public void setMenuItemImage(ImageView menuItemImage) {
-        this.menuItemImage = menuItemImage;
+    public void setMenuItemImage(String menuItemImage) throws FileNotFoundException {
+        if (menuItemImage != null) {
+            FileInputStream fis = new FileInputStream(path + "/src/main/resources/com/tablemasterordering/images/burger-demo.png");
+            Image image = new Image(fis);
+            this.menuItemImage.setImage(image);
+        }
     }
 
     public Text getMenuItemPrice() {

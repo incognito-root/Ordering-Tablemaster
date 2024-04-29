@@ -12,11 +12,7 @@
         <String fx:value="transparent-background" />
     </styleClass>
     <children>
-        <ImageView fx:id="menuItemImage" fitHeight="150.0" fitWidth="230.0" pickOnBounds="true">
-            <image>
-                <Image url="@../images/burger-demo.png" />
-            </image>
-        </ImageView>
+        <ImageView fx:id="menuItemImage" fitHeight="150.0" fitWidth="230.0" pickOnBounds="true" />
         <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Special Burger" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="140.0">
             <styleClass>
                 <String fx:value="text-main" />

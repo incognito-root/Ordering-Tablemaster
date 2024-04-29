@@ -47,7 +47,7 @@ public class CartController implements Initializable {
             AnchorPane anchorPane = loader.load();
             CartMenuItemController paneController = loader.getController();
 
-            paneController.setData(details.getMenuItemTitle(), String.valueOf(details.getMenuItemPrice()), "2", "100");
+            paneController.setData(details.getMenuItemName(), String.valueOf(details.getMenuItemPrice()), "2", "100");
             cartItems.getChildren().add(anchorPane);
         }
     }
