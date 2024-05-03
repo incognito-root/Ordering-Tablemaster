@@ -14,10 +14,17 @@ public class MenuItemModel {
     private LocalDateTime menuItemAddedDate;
     private String menuItemImage;
 
-
-    public MenuItemModel(String menuItemName, double menuItemPrice) {
+    public MenuItemModel(String menuItemName, double menuItemPrice, String menuItemImageUrl, String menuItemDescription, int fkCategoryId, int menuItemServing, boolean menuItemIsAvailable, int menuItemTotalOrders, LocalDateTime menuItemAddedDate, String menuItemImage) {
         this.menuItemName = menuItemName;
         this.menuItemPrice = menuItemPrice;
+        this.menuItemImageUrl = menuItemImageUrl;
+        this.menuItemDescription = menuItemDescription;
+        this.fkCategoryId = fkCategoryId;
+        this.menuItemServing = menuItemServing;
+        this.menuItemIsAvailable = menuItemIsAvailable;
+        this.menuItemTotalOrders = menuItemTotalOrders;
+        this.menuItemAddedDate = menuItemAddedDate;
+        this.menuItemImage = menuItemImage;
     }
 
     public MenuItemModel() {

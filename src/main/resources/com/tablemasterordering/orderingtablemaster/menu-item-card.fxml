@@ -19,7 +19,7 @@
                 <String fx:value="text-body" />
             </styleClass>
         </Text>
-        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <ImageView fx:id="addToCartButton" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#addToCart" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <image>
                 <Image url="@../images/cart-small.png" />
             </image>

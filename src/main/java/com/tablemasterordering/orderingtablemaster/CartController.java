@@ -1,6 +1,9 @@
 package com.tablemasterordering.orderingtablemaster;
 
-import com.tablemasterordering.orderingtablemaster.models.MenuItemModel;
+import com.tablemasterordering.orderingtablemaster.models.CartMenuItemModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +16,6 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CartController implements Initializable {
@@ -35,37 +37,15 @@ public class CartController implements Initializable {
     @FXML
     private AnchorPane mainCartArea;
 
+    private static ObservableList<CartMenuItemModel> cartItemsList = FXCollections.observableArrayList();
+
+    private static double totalBill = 0;
+
+    private static double billTax = 0;
+
+    private static double finalBill = 0;
+
     public CartController() {
-    }
-
-    public void fillData() throws IOException {
-
-        ArrayList<MenuItemModel> dataList = getMenuItemModels();
-
-        for (MenuItemModel details : dataList) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("cart-menu-item-card.fxml"));
-            AnchorPane anchorPane = loader.load();
-            CartMenuItemController paneController = loader.getController();
-
-            paneController.setData(details.getMenuItemName(), String.valueOf(details.getMenuItemPrice()), "2", "100");
-            cartItems.getChildren().add(anchorPane);
-        }
-    }
-
-    private static ArrayList<MenuItemModel> getMenuItemModels() {
-        ArrayList<MenuItemModel> dataList = new ArrayList<>();
-        MenuItemModel m1 = new MenuItemModel("test recipe", 100);
-        MenuItemModel m2 = new MenuItemModel("test recipe", 100);
-        MenuItemModel m3 = new MenuItemModel("test recipe", 100);
-        MenuItemModel m4 = new MenuItemModel("test recipe", 100);
-        MenuItemModel m5 = new MenuItemModel("test recipe", 100);
-
-        dataList.add(m1);
-        dataList.add(m2);
-        dataList.add(m3);
-        dataList.add(m4);
-        dataList.add(m5);
-        return dataList;
     }
 
     public void closeCart() {
@@ -79,10 +59,60 @@ public class CartController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            fillData();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+        cartItemsList.addListener((ListChangeListener<CartMenuItemModel>) c -> {
+            while (c.next()) {
+                if (c.wasAdded()) {
+
+                    for (CartMenuItemModel addedItem : cartItemsList) {
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("cart-menu-item-card.fxml"));
+                            AnchorPane anchorPane = loader.load();
+                            CartMenuItemController paneController = loader.getController();
+                            paneController.setData(addedItem.getMenuItemName(), String.valueOf(addedItem.getMenuItemPrice()), String.valueOf(addedItem.getQuantity()), String.valueOf(addedItem.getMenuItemPrice()));
+                            cartItems.getChildren().add(anchorPane);
+
+                            totalBill += addedItem.getMenuItemPrice();
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+
+                    billTax = 0.16 * totalBill;
+                    finalBill = totalBill + billTax;
+
+                    cartTax.setText(String.valueOf(billTax));
+                    cartTotal.setText(String.valueOf(totalBill));
+                    cartSubTotal.setText(String.valueOf(finalBill));
+                    cartDiscount.setText(String.valueOf(0));
+                }
+
+                if (c.wasRemoved()) {
+                    cartItems.getChildren().clear();
+                }
+            }
+        });
+
+    }
+
+
+
+    public void addMenuItemToCart(CartMenuItemModel cartMenuItemToAdd) {
+
+        for (CartMenuItemModel m : cartItemsList) {
+            if (m.getMenuItemName().equals(cartMenuItemToAdd.getMenuItemName())) {
+                cartItemsList.remove(m);
+                m.increaseQuantity();
+                cartItemsList.add(m);
+                return;
+            }
         }
+
+        cartItemsList.add(cartMenuItemToAdd);
+    }
+
+    public ObservableList<CartMenuItemModel> getCartItemsList() {
+        return cartItemsList;
     }
 }

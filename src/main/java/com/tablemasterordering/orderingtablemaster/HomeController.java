@@ -1,9 +1,11 @@
 package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.MenuService;
+import com.tablemasterordering.orderingtablemaster.models.CartMenuItemModel;
 import com.tablemasterordering.orderingtablemaster.models.MenuItemModel;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,7 +34,7 @@ public class HomeController implements Initializable {
 
     private AnchorPane mainCartArea;
 
-    ArrayList<MenuItemModel> allMenuItems;
+    private static ArrayList<MenuItemModel> allMenuItems;
 
     public HomeController() {
 
@@ -46,8 +48,13 @@ public class HomeController implements Initializable {
             MenuItemController paneController = loader.getController();
 
             paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemName(), details.getMenuItemImage());
+
+            CartMenuItemModel cartMenuItemModel = new CartMenuItemModel(details);
+            paneController.setSelectedCartMenuItem(cartMenuItemModel);
+
             menuItemsArea.getChildren().add(anchorPane);
         }
+
     }
 
     private void initializeCart() throws IOException {
@@ -58,7 +65,7 @@ public class HomeController implements Initializable {
         mainStackPane.getChildren().add(mainCartArea);
     }
 
-    public void showCart() {
+    public void showCart() throws IOException {
         mainCartArea.setVisible(true);
         mainCartArea.setTranslateX(mainCartArea.getBoundsInParent().getWidth());
         TranslateTransition transition = new TranslateTransition(Duration.seconds(1), mainCartArea);
@@ -74,6 +81,8 @@ public class HomeController implements Initializable {
             mainCartArea.setBackground(background);
 
         }), 1, TimeUnit.SECONDS);
+
+        System.out.println();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.tablemasterordering.orderingtablemaster;
 
+import com.tablemasterordering.orderingtablemaster.models.CartMenuItemModel;
+import com.tablemasterordering.orderingtablemaster.models.MenuItemModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -25,6 +27,8 @@ public class MenuItemController {
     private Text menuItemTitle;
 
     private final String path = "/Users/ayaan/MyProjects/Ordering-Tablemaster";
+
+    private CartMenuItemModel selectedCartMenuItem;
 
     public void setData(String menuItemPrice, String menuItemTitle, String menuItemImage) throws FileNotFoundException {
         this.setMenuItemImage(menuItemImage);
@@ -58,5 +62,19 @@ public class MenuItemController {
 
     public void setMenuItemTitle(Text menuItemTitle) {
         this.menuItemTitle = menuItemTitle;
+    }
+
+    public CartMenuItemModel getSelectedCartMenuItem() {
+        return selectedCartMenuItem;
+    }
+
+    public void setSelectedCartMenuItem(CartMenuItemModel selectedCartMenuItem) {
+        this.selectedCartMenuItem = selectedCartMenuItem;
+    }
+
+    public void addToCart() {
+        CartController cartController = new CartController();
+
+        cartController.addMenuItemToCart(this.selectedCartMenuItem);
     }
 }
