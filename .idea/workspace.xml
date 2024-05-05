@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/models/CartMenuItemModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MenuItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MenuItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/models/MenuItemModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/models/MenuItemModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/menu-item-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/menu-item-card.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +146,7 @@
       <workItem from="1714641874694" duration="73000" />
       <workItem from="1714735172903" duration="3133000" />
       <workItem from="1714741311305" duration="748000" />
-      <workItem from="1714769270641" duration="5952000" />
+      <workItem from="1714769270641" duration="6136000" />
     </task>
     <servers />
   </component>
