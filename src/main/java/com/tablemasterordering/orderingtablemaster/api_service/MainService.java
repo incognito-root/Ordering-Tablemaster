@@ -25,7 +25,6 @@ public class MainService {
             e.printStackTrace();
         }
 
-        System.out.println(response);
         return response;
     }
 }
