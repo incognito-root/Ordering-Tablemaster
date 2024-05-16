@@ -1,6 +1,8 @@
 package com.tablemasterordering.orderingtablemaster;
 
+import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.InputValidations;
+import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -65,7 +68,13 @@ public class SignUpController implements Initializable {
     private Button signUpButton;
 
     public void sendSignUpRequest() {
-        System.out.println(signUpButton.disabledProperty().get());
+        CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", "male", Integer.valueOf(ageField.getText()));
+        try {
+            CustomerService customerService = new CustomerService();
+            boolean signedUp = customerService.customerSignUp(customer);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void validateField(Event e) {

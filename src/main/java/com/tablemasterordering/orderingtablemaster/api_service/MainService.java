@@ -28,4 +28,22 @@ public class MainService {
         System.out.println(response);
         return response;
     }
+
+    protected HttpResponse<String> postRequest(String url, String body) throws IOException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(mainUrl + url))
+                .method("POST", HttpRequest.BodyPublishers.ofString(body))
+                .header("Content-Type", "application/json")
+                .build();
+
+        HttpResponse<String> response = null;
+
+        try{
+            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
 }
