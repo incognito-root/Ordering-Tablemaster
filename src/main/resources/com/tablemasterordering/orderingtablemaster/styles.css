@@ -38,6 +38,10 @@
     -fx-font-size: 30px;
 }
 
+.h3 {
+    -fx-font-size: 24px;
+}
+
 .text-body {
     -fx-font-size: 16px;
 }
@@ -198,4 +202,34 @@
     -fx-padding: 12;
     -fx-background-radius: 55;
     -fx-background-color: #000000;
+}
+
+.login-fields {
+    -fx-background-color: #444858;
+    -fx-padding: 20px;
+    -fx-background-radius: 15px;
+    -fx-min-width: 350;
+    -fx-text-fill: #ffffff;
+}
+
+.login-sign-up-buttons-main {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-padding: 18px;
+    -fx-background-radius: 15px;
+    -fx-min-width: 350;
+    -fx-border-radius: 15;
+    -fx-border-color: #EA6969;
+    -fx-text-fill: #EA6969;
+    -fx-font-weight: 500;
+}
+
+.login-sign-up-buttons-secondary {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-padding: 18px;
+    -fx-background-radius: 15px;
+    -fx-min-width: 350;
+    -fx-border-radius: 15;
+    -fx-border-color: #444858;
+    -fx-text-fill: #444858;
+    -fx-font-weight: 500;
 }

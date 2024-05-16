@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="" />
+    <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/cookie.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/SignUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/helper_functions/Auth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/helper_functions/InputValidations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/models/CustomerModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/images/signup-image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,39 +46,45 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2e3NshB8yZwhIhR3CyLjiv8iYUJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Maven.Ordering-Tablemaster [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;API__Home&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ayaan/MyProjects/Ordering-Tablemaster&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.36091954&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.MainApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Maven.Ordering-Tablemaster [clean].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "LoginSignUp",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/ayaan/MyProjects/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.36091954",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/images" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.tablemasterordering.orderingtablemaster" />
       <recent name="com.tablemasterordering.orderingtablemaster.controllers" />
@@ -93,8 +113,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -147,6 +167,16 @@
       <workItem from="1714735172903" duration="3133000" />
       <workItem from="1714741311305" duration="748000" />
       <workItem from="1714769270641" duration="6136000" />
+      <workItem from="1715700235655" duration="187000" />
+      <workItem from="1715711545685" duration="4977000" />
+      <workItem from="1715724099520" duration="238000" />
+      <workItem from="1715744405386" duration="55000" />
+      <workItem from="1715755014521" duration="1747000" />
+      <workItem from="1715769686330" duration="4115000" />
+      <workItem from="1715783892025" duration="224000" />
+      <workItem from="1715798581769" duration="221000" />
+      <workItem from="1715810566969" duration="1249000" />
+      <workItem from="1715834824023" duration="7341000" />
     </task>
     <servers />
   </component>

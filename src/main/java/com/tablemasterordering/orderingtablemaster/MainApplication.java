@@ -1,6 +1,7 @@
 package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.MenuService;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,10 +12,18 @@ import java.io.IOException;
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-screen.fxml"));
+        boolean loggedInStatus = Auth.checkSignedInStatus();
 
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Scene scene = null;
 
+        if (loggedInStatus) {
+            fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-screen.fxml"));
+        } else {
+            fxmlLoader = new FXMLLoader(MainApplication.class.getResource("sign-up.fxml"));
+        }
+
+        scene = new Scene(fxmlLoader.load(), 1200, 720);
         stage.setScene(scene);
         stage.show();
     }

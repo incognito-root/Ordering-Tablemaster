@@ -90,6 +90,7 @@ public class HomeController implements Initializable {
         try {
             MenuService menuService = new MenuService();
             menuService.setAllMenuItems();
+
             allMenuItems  = menuService.getAllMenuItems();
 
             this.fillData();
