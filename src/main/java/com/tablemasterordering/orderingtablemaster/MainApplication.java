@@ -20,10 +20,10 @@ public class MainApplication extends Application {
         if (loggedInStatus) {
             fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-screen.fxml"));
         } else {
-            fxmlLoader = new FXMLLoader(MainApplication.class.getResource("sign-up.fxml"));
+            fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
         }
 
-        scene = new Scene(fxmlLoader.load(), 1200, 720);
+        scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setScene(scene);
         stage.show();
     }

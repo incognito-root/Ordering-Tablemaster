@@ -20,7 +20,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </ImageView>
-            <StackPane layoutX="20.0" layoutY="106.0" prefHeight="100.0" prefWidth="100.0">
+            <StackPane layoutX="20.0" layoutY="106.0" prefHeight="100.0" prefWidth="100.0" styleClass="cursor-pointer">
                <children>
                   <Rectangle fx:id="navHomeBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
                   <ImageView fx:id="navHomeInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
@@ -35,7 +35,7 @@
                   </ImageView>
                </children>
             </StackPane>
-            <StackPane layoutX="40.0" layoutY="82.0" prefHeight="100.0" prefWidth="100.0">
+            <StackPane layoutX="40.0" layoutY="82.0" prefHeight="100.0" prefWidth="100.0" styleClass="cursor-pointer">
                <children>
                   <Rectangle fx:id="navDashboardBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
                   <ImageView fx:id="navDashboardInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
@@ -50,7 +50,7 @@
                   </ImageView>
                </children>
             </StackPane>
-            <StackPane layoutX="40.0" layoutY="182.0" prefHeight="100.0" prefWidth="100.0">
+            <StackPane layoutX="40.0" layoutY="182.0" prefHeight="100.0" prefWidth="100.0" styleClass="cursor-pointer">
                <children>
                   <Rectangle fx:id="navMessagesBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
                   <ImageView fx:id="navMessagesInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
@@ -65,7 +65,7 @@
                   </ImageView>
                </children>
             </StackPane>
-            <StackPane layoutX="40.0" layoutY="382.0" prefHeight="100.0" prefWidth="100.0">
+            <StackPane layoutX="40.0" layoutY="382.0" prefHeight="100.0" prefWidth="100.0" styleClass="cursor-pointer">
                <children>
                   <Rectangle fx:id="navNotificationsBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
                   <ImageView fx:id="navNotificationsInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
@@ -80,7 +80,7 @@
                   </ImageView>
                </children>
             </StackPane>
-            <StackPane layoutX="40.0" layoutY="282.0" prefHeight="100.0" prefWidth="100.0">
+            <StackPane layoutX="40.0" layoutY="282.0" prefHeight="100.0" prefWidth="100.0" styleClass="cursor-pointer">
                <children>
                   <Rectangle fx:id="navSettingsBackground" arcHeight="35.0" arcWidth="35.0" fill="#ea6969" height="70.0" stroke="BLACK" strokeType="INSIDE" style="visibility: false;" width="70.0" />
                   <ImageView fx:id="navSettingsInactive" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#navigateToPage" pickOnBounds="true" preserveRatio="true">
@@ -95,7 +95,7 @@
                   </ImageView>
                </children>
             </StackPane>
-            <StackPane layoutX="40.0" layoutY="482.0" prefHeight="100.0" prefWidth="100.0">
+            <StackPane layoutX="40.0" layoutY="482.0" prefHeight="100.0" prefWidth="100.0" styleClass="cursor-pointer">
                <children>
                   <ImageView fitHeight="35.0" fitWidth="35.0" onMouseClicked="#exitApp" pickOnBounds="true" preserveRatio="true">
                      <image>

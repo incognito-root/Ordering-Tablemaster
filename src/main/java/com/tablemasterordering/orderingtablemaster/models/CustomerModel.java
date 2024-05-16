@@ -26,6 +26,11 @@ public class CustomerModel {
     public CustomerModel() {
     }
 
+    public CustomerModel(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public String getFirstName() {
         return firstName;
     }

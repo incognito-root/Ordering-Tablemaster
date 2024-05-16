@@ -233,3 +233,7 @@
     -fx-text-fill: #444858;
     -fx-font-weight: 500;
 }
+
+.cursor-pointer {
+    -fx-cursor: hand;
+}

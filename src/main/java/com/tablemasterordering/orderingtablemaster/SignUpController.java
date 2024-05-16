@@ -3,15 +3,18 @@ package com.tablemasterordering.orderingtablemaster;
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.InputValidations;
 import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
@@ -67,14 +70,32 @@ public class SignUpController implements Initializable {
     @FXML
     private Button signUpButton;
 
+    @FXML
+    private RadioButton radioButtonFemale;
+
+    @FXML
+    private RadioButton radioButtonMale;
+
+    private String gender;
+
     public void sendSignUpRequest() {
-        CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", "male", Integer.valueOf(ageField.getText()));
+        CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", gender, Integer.parseInt(ageField.getText()));
         try {
             CustomerService customerService = new CustomerService();
             boolean signedUp = customerService.customerSignUp(customer);
+
+            if (signedUp) {
+                redirectToLogin();
+            }
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void redirectToLogin() throws IOException {
+        SceneSwitcher sceneSwitcher = new SceneSwitcher("test");
+        sceneSwitcher.switchScene("login.fxml", emailField);
     }
 
     public void validateField(Event e) {
@@ -176,6 +197,17 @@ public class SignUpController implements Initializable {
 
     private void enableButton() {
         signUpButton.setDisable(false);
+    }
+
+    public void selectGender(ActionEvent actionEvent) {
+        String source = ((RadioButton) actionEvent.getSource()).getId();
+
+        if (source.equals("radioButtonMale")) {
+            gender = "male";
+        }
+        if (source.equals("radioButtonFemale")) {
+            gender = "female";
+        }
     }
 
     @Override
