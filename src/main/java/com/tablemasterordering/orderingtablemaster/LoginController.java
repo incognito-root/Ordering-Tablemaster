@@ -2,6 +2,7 @@ package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.models.LoginModel;
+import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -38,12 +39,12 @@ public class LoginController {
         this.stage = (Stage) emailField.getScene().getWindow();
 
         CustomerService customerService = new CustomerService();
-        boolean isLoggedId = customerService.customerLogin(customer);
+        LoginResponseModel loginResponseModel = customerService.customerLogin(customer);
 
-        if (isLoggedId) {
+        if (loginResponseModel.getId() != 0) {
 
             if (stayLoggedIn.isSelected()) {
-                saveCookie(customer.getUsernameOrEmail());
+                saveCookie(loginResponseModel.getId());
             }
 
             SceneSwitcher sceneSwitcher = new SceneSwitcher("test");
@@ -62,12 +63,12 @@ public class LoginController {
         sceneSwitcher.switchScene("sign-up.fxml", emailField);
     }
 
-    private void saveCookie(String username) throws IOException {
+    private void saveCookie(long id) throws IOException {
         BufferedWriter writer = null;
 
         try {
             writer = new BufferedWriter(new FileWriter("cookie.txt"));
-            writer.write(username);
+            writer.write(String.valueOf(id));
         } catch (IOException e) {
             System.out.println("Error in writing to file: " + e.getMessage());
         } finally {
