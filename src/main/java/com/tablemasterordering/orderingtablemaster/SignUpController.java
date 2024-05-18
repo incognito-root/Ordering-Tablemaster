@@ -122,14 +122,17 @@ public class SignUpController implements Initializable {
 
                 if (!InputValidations.isDigits(contactNumberField.getText())) {
                     InputValidations.setErrors(contactNumberLabel);
+                    disableButton();
                     return;
                 }
 
                 if (!InputValidations.validateLength(contactNumberField.getText(), 11, 11)) {
                     InputValidations.setErrors(contactNumberLabel);
+                    disableButton();
                     return;
                 }
 
+                enableButton();
                 InputValidations.clearErrors(contactNumberLabel, contactNumberLabelBackup);
             }
 
@@ -138,14 +141,17 @@ public class SignUpController implements Initializable {
 
                 if (!InputValidations.isDigits(ageField.getText())) {
                     InputValidations.setErrors(ageLabel);
+                    disableButton();
                     return;
                 }
 
                 if (!InputValidations.validateLength(ageField.getText(), 2, 3)) {
                     InputValidations.setErrors(ageLabel);
+                    disableButton();
                     return;
                 }
 
+                enableButton();
                 InputValidations.clearErrors(ageLabel, ageLabelBackup);
             }
 
@@ -154,9 +160,11 @@ public class SignUpController implements Initializable {
 
                 if (!InputValidations.validateLength(passwordField.getText(), 8, 50)) {
                     InputValidations.setErrors(passwordLabel);
+                    disableButton();
                     return;
                 }
 
+                enableButton();
                 InputValidations.clearErrors(passwordLabel, passwordLabelBackup);
             }
 
@@ -165,9 +173,11 @@ public class SignUpController implements Initializable {
 
                 if (!InputValidations.validatePasswordMatch(passwordField.getText(), confirmPasswordField.getText())) {
                     InputValidations.setErrors(confirmPasswordLabel);
+                    disableButton();
                     return;
                 }
 
+                enableButton();
                 InputValidations.clearErrors(confirmPasswordLabel, confirmPasswordLabelBackup);
             }
         }
