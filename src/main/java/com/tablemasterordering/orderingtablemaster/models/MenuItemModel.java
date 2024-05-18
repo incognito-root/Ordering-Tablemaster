@@ -3,6 +3,7 @@ package com.tablemasterordering.orderingtablemaster.models;
 import java.time.LocalDateTime;
 
 public class MenuItemModel {
+    private long menuItemId;
     private String menuItemName;
     private double menuItemPrice;
     private String menuItemImageUrl;
@@ -14,7 +15,8 @@ public class MenuItemModel {
     private LocalDateTime menuItemAddedDate;
     private String menuItemImage;
 
-    public MenuItemModel(String menuItemName, double menuItemPrice, String menuItemImageUrl, String menuItemDescription, int fkCategoryId, int menuItemServing, boolean menuItemIsAvailable, int menuItemTotalOrders, LocalDateTime menuItemAddedDate, String menuItemImage) {
+    public MenuItemModel(long menuItemId, String menuItemName, double menuItemPrice, String menuItemImageUrl, String menuItemDescription, int fkCategoryId, int menuItemServing, boolean menuItemIsAvailable, int menuItemTotalOrders, LocalDateTime menuItemAddedDate, String menuItemImage) {
+        this.menuItemId = menuItemId;
         this.menuItemName = menuItemName;
         this.menuItemPrice = menuItemPrice;
         this.menuItemImageUrl = menuItemImageUrl;
@@ -28,6 +30,14 @@ public class MenuItemModel {
     }
 
     public MenuItemModel() {
+    }
+
+    public long getMenuItemId() {
+        return menuItemId;
+    }
+
+    public void setMenuItemId(long menuItemId) {
+        this.menuItemId = menuItemId;
     }
 
     public String getMenuItemName() {

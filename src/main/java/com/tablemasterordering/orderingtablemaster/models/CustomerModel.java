@@ -1,6 +1,7 @@
 package com.tablemasterordering.orderingtablemaster.models;
 
 public class CustomerModel {
+    private long customerId;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -10,6 +11,9 @@ public class CustomerModel {
     private String notes;
     private String gender;
     private int age;
+    private Long fkMenuItemMostOrdered;
+    private boolean membership;
+    private boolean isVerified;
 
     public CustomerModel(String firstName, String lastName, String phoneNumber, String address, String email, String password, String notes, String gender, int age) {
         this.firstName = firstName;
@@ -23,12 +27,36 @@ public class CustomerModel {
         this.age = age;
     }
 
+    public CustomerModel(long customerId, String firstName, String lastName, String phoneNumber, String address, String email, String password, String notes, String gender, int age, Long fkMenuItemMostOrdered, boolean membership, boolean isVerified) {
+        this.customerId = customerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+        this.notes = notes;
+        this.gender = gender;
+        this.age = age;
+        this.fkMenuItemMostOrdered = fkMenuItemMostOrdered;
+        this.membership = membership;
+        this.isVerified = isVerified;
+    }
+
     public CustomerModel() {
     }
 
     public CustomerModel(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstName() {
@@ -101,5 +129,34 @@ public class CustomerModel {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Long getFkMenuItemMostOrdered() {
+        return fkMenuItemMostOrdered;
+    }
+
+    public void setFkMenuItemMostOrdered(Long fkMenuItemMostOrdered) {
+        this.fkMenuItemMostOrdered = fkMenuItemMostOrdered;
+    }
+
+    public boolean getIsMembership() {
+        return membership;
+    }
+
+    public void setIsMembership(boolean membership) {
+        this.membership = membership;
+    }
+
+    public boolean getIsVerified() {
+        return isVerified;
+    }
+
+    public void setIsVerified(boolean verified) {
+        isVerified = verified;
+    }
+
+    @Override
+    public String toString() {
+        return customerId + " " + firstName;
     }
 }

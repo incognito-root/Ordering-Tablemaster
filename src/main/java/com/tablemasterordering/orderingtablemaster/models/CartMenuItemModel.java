@@ -6,7 +6,7 @@ public class CartMenuItemModel extends MenuItemModel {
     private int quantity;
 
     public CartMenuItemModel(MenuItemModel menuItemModel) {
-        super(menuItemModel.getMenuItemName(), menuItemModel.getMenuItemPrice(), menuItemModel.getMenuItemImageUrl(), menuItemModel.getMenuItemDescription(),
+        super(menuItemModel.getMenuItemId(), menuItemModel.getMenuItemName(), menuItemModel.getMenuItemPrice(), menuItemModel.getMenuItemImageUrl(), menuItemModel.getMenuItemDescription(),
                 menuItemModel.getFkCategoryId(), menuItemModel.getMenuItemServing(), menuItemModel.isMenuItemIsAvailable(), menuItemModel.getMenuItemTotalOrders(),
                 menuItemModel.getMenuItemAddedDate(), menuItemModel.getMenuItemImage());
         this.setQuantity(1);

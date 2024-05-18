@@ -80,7 +80,7 @@
                   <String fx:value="text-secondary" />
                </styleClass>
             </Text>
-            <Button mnemonicParsing="false" onAction="#closeCart" text="Confirm Payment" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="660.0">
+            <Button mnemonicParsing="false" onAction="#createOrder" text="Confirm Payment" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="660.0">
                <styleClass>
                   <String fx:value="primary-background" />
                   <String fx:value="text-main" />

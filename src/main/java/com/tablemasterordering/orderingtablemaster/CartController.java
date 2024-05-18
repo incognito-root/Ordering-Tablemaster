@@ -1,6 +1,10 @@
 package com.tablemasterordering.orderingtablemaster;
 
+import com.tablemasterordering.orderingtablemaster.api_service.OrderService;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.models.CartMenuItemModel;
+import com.tablemasterordering.orderingtablemaster.models.OrderDetailModel;
+import com.tablemasterordering.orderingtablemaster.models.OrderModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -16,6 +20,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CartController implements Initializable {
@@ -55,6 +60,35 @@ public class CartController implements Initializable {
         BackgroundFill fill = new BackgroundFill(color, null, null);
         Background background = new Background(fill);
         mainCartArea.setBackground(background);
+    }
+
+    public void createOrder() {
+        OrderModel orderModel = new OrderModel();
+        orderModel.setOrderDescription(" ");
+        orderModel.setOrderAmount(finalBill);
+        orderModel.setFkCustomerId(Auth.customerId);
+        orderModel.setOrderExtraCharges(0);
+
+        ArrayList<OrderDetailModel> orderDetail = new ArrayList<>();
+
+        for (CartMenuItemModel cartMenuItemModel : cartItemsList) {
+            OrderDetailModel orderDetailModel = new OrderDetailModel(cartMenuItemModel.getQuantity(), cartMenuItemModel.getMenuItemId());
+            orderDetail.add(orderDetailModel);
+        }
+
+        orderModel.setOrderDetails(orderDetail);
+
+        OrderService orderService = new OrderService();
+        try {
+            boolean orderCreated = orderService.createOrder(orderModel);
+
+            if (orderCreated) {
+                closeCart();
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override

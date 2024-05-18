@@ -18,6 +18,7 @@ public class MainApplication extends Application {
         Scene scene = null;
 
         if (loggedInStatus) {
+            Auth.setCustomerDetails();
             fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-screen.fxml"));
         } else {
             fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
