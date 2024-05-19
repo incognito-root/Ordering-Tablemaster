@@ -54,4 +54,9 @@ public class Auth {
         CustomerService customerService = new CustomerService();
         customerDetails = customerService.getCustomerDetails(new GetCustomerById(customerId));
     }
+
+    public static void setCustomerDetails(long cId) throws IOException {
+        CustomerService customerService = new CustomerService();
+        customerDetails = customerService.getCustomerDetails(new GetCustomerById(cId));
+    }
 }

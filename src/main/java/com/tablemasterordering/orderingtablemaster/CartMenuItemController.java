@@ -1,5 +1,7 @@
 package com.tablemasterordering.orderingtablemaster;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -7,9 +9,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 public class CartMenuItemController {
-    @FXML
-    private ImageView menuItemDeleteButton;
-
     @FXML
     private ImageView menuItemImage;
 
@@ -33,14 +32,6 @@ public class CartMenuItemController {
     }
 
     public CartMenuItemController() {
-    }
-
-    public ImageView getMenuItemDeleteButton() {
-        return menuItemDeleteButton;
-    }
-
-    public void setMenuItemDeleteButton(ImageView menuItemDeleteButton) {
-        this.menuItemDeleteButton = menuItemDeleteButton;
     }
 
     public ImageView getMenuItemImage() {

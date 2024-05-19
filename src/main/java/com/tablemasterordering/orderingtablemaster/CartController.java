@@ -66,7 +66,7 @@ public class CartController implements Initializable {
         OrderModel orderModel = new OrderModel();
         orderModel.setOrderDescription(" ");
         orderModel.setOrderAmount(finalBill);
-        orderModel.setFkCustomerId(Auth.customerId);
+        orderModel.setFkCustomerId(Auth.customerId != 0 ? Auth.customerId : Auth.customerDetails.getCustomerId());
         orderModel.setOrderExtraCharges(0);
 
         ArrayList<OrderDetailModel> orderDetail = new ArrayList<>();
@@ -96,54 +96,65 @@ public class CartController implements Initializable {
 
         cartItemsList.addListener((ListChangeListener<CartMenuItemModel>) c -> {
             while (c.next()) {
-                if (c.wasAdded()) {
-
-                    for (CartMenuItemModel addedItem : cartItemsList) {
-                        try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("cart-menu-item-card.fxml"));
-                            AnchorPane anchorPane = loader.load();
-                            CartMenuItemController paneController = loader.getController();
-                            paneController.setData(addedItem.getMenuItemName(), String.valueOf(addedItem.getMenuItemPrice()), String.valueOf(addedItem.getQuantity()), String.valueOf(addedItem.getMenuItemPrice()));
-                            cartItems.getChildren().add(anchorPane);
-
-                            totalBill += addedItem.getMenuItemPrice();
-
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-
-                    billTax = 0.16 * totalBill;
-                    finalBill = totalBill + billTax;
-
-                    cartTax.setText(String.valueOf(billTax));
-                    cartTotal.setText(String.valueOf(totalBill));
-                    cartSubTotal.setText(String.valueOf(finalBill));
-                    cartDiscount.setText(String.valueOf(0));
-                }
-
-                if (c.wasRemoved()) {
-                    cartItems.getChildren().clear();
+                if (c.wasAdded() || c.wasRemoved()) {
+                    updateCartView();
                 }
             }
         });
 
+        updateCartView();
+
     }
 
+    private void updateCartView() {
+        cartItems.getChildren().clear();
+        totalBill = 0;
 
+        for (CartMenuItemModel item : cartItemsList) {
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("cart-menu-item-card.fxml"));
+                AnchorPane anchorPane = loader.load();
+                CartMenuItemController paneController = loader.getController();
+                paneController.setData(item.getMenuItemName(), String.valueOf(item.getMenuItemPrice()), String.valueOf(item.getQuantity()), String.valueOf(item.getMenuItemPrice()));
+                cartItems.getChildren().add(anchorPane);
+
+                totalBill += item.getMenuItemPrice() * item.getQuantity();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        billTax = 0.16 * totalBill;
+        finalBill = totalBill + billTax;
+
+        cartTax.setText(String.valueOf(billTax));
+        cartTotal.setText(String.valueOf(totalBill));
+        cartSubTotal.setText(String.valueOf(finalBill));
+        cartDiscount.setText(String.valueOf(0));
+    }
 
     public void addMenuItemToCart(CartMenuItemModel cartMenuItemToAdd) {
 
         for (CartMenuItemModel m : cartItemsList) {
             if (m.getMenuItemName().equals(cartMenuItemToAdd.getMenuItemName())) {
-                cartItemsList.remove(m);
                 m.increaseQuantity();
-                cartItemsList.add(m);
+                cartItemsList.set(cartItemsList.indexOf(m), m);
                 return;
             }
         }
 
         cartItemsList.add(cartMenuItemToAdd);
+    }
+
+    public void removeMenuItemFromCart(String cartMenuItemToRemove) {
+        for (CartMenuItemModel m : cartItemsList) {
+            if (m.getMenuItemName().equals(cartMenuItemToRemove)) {
+                System.out.println(m.getMenuItemName());
+                System.out.println(cartMenuItemToRemove);
+                cartItemsList.remove(m);
+            }
+        }
     }
 
     public ObservableList<CartMenuItemModel> getCartItemsList() {

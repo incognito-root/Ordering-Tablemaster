@@ -37,14 +37,9 @@
             <String fx:value="h2" />
             <String fx:value="text-main" />
          </styleClass></Label>
-      <ImageView fx:id="menuItemDeleteButton" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="45.0">
-         <image>
-            <Image url="@../images/Delete_Button.png" />
-         </image>
-      </ImageView>
-      <Text fx:id="menuItemTotalPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="10.0">
+      <Text fx:id="menuItemTotalPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="30.0">
          <styleClass>
-            <String fx:value="text-body-medium" />
+            <String fx:value="h3" />
             <String fx:value="text-main" />
          </styleClass>
       </Text>
