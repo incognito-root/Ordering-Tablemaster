@@ -9,9 +9,11 @@
       <change beforePath="$PROJECT_DIR$/cookie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cookie.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartMenuItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartMenuItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/helper_functions/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/helper_functions/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/models/CartMenuItemModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/models/CartMenuItemModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart-menu-item-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart-menu-item-card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/cart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +175,7 @@
       <workItem from="1715834824023" duration="7430000" />
       <workItem from="1715849110712" duration="723000" />
       <workItem from="1716040605989" duration="12132000" />
-      <workItem from="1716093300000" duration="676000" />
+      <workItem from="1716093300000" duration="6021000" />
     </task>
     <servers />
   </component>

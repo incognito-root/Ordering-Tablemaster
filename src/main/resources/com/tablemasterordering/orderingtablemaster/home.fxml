@@ -27,7 +27,7 @@
                     </TextField>
                     <TabPane prefHeight="590.0" prefWidth="1180.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="130.0">
                         <tabs>
-                            <Tab text="Fast Food">
+                            <Tab text="All Menu Items">
                            <content>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
@@ -45,7 +45,6 @@
                               </AnchorPane>
                            </content>
                             </Tab>
-                            <Tab text="Continental" />
                         </tabs>
                     </TabPane>
                     <Rectangle arcHeight="27.0" arcWidth="27.0" fill="#444858" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="30.0" />

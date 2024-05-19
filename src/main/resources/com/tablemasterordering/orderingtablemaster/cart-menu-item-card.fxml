@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,36 +13,54 @@
    <children>
       <StackPane layoutY="10.0" styleClass="circular-image" AnchorPane.topAnchor="10.0">
          <children>
-            <ImageView fx:id="menuItemImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true">
+            <ImageView fx:id="menuItemImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/burger-demo.png" />
                </image>
             </ImageView>
          </children>
       </StackPane>
-      <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="100.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="15.0">
+      <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="100.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="15.0">
          <styleClass>
             <String fx:value="text-body-medium" />
             <String fx:value="text-main" />
          </styleClass>
       </Text>
-      <Text fx:id="menuItemPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs.  250" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="50.0">
+      <Text fx:id="menuItemPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs.  250" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="50.0">
          <styleClass>
             <String fx:value="text-body" />
             <String fx:value="text-secondary" />
          </styleClass>
       </Text>
-      <Label fx:id="menuItemQuantity" minHeight="60.0" minWidth="60.0" style="-fx-background-radius: 12;" text="1" textAlignment="CENTER" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="15.0">
+      <Label fx:id="menuItemQuantity" alignment="CENTER" minHeight="60.0" minWidth="60.0" style="-fx-background-radius: 12;" text="1" textAlignment="CENTER" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="15.0">
          <styleClass>
             <String fx:value="transparent-background" />
             <String fx:value="h2" />
             <String fx:value="text-main" />
          </styleClass></Label>
-      <Text fx:id="menuItemTotalPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="30.0">
+      <Text fx:id="menuItemTotalPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
          <styleClass>
             <String fx:value="h3" />
             <String fx:value="text-main" />
          </styleClass>
       </Text>
+      <Label fx:id="increaseQuantityButton" onMouseClicked="#changeQuantity" text="+" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="35.0">
+         <styleClass>
+            <String fx:value="text-body-medium" />
+            <String fx:value="cart-button-small" />
+         </styleClass>
+         <padding>
+            <Insets left="7.0" right="7.0" />
+         </padding>
+      </Label>
+      <Label fx:id="reduceQuantityButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#changeQuantity" text="-" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="35.0">
+         <styleClass>
+            <String fx:value="text-body-medium" />
+            <String fx:value="cart-button-small" />
+         </styleClass>
+         <padding>
+            <Insets left="7.0" right="7.0" />
+         </padding>
+      </Label>
    </children>
 </AnchorPane>

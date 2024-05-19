@@ -26,4 +26,14 @@ public class CartMenuItemModel extends MenuItemModel {
     public void increaseQuantity() {
         this.quantity++;
     }
+
+    public boolean decreaseQuantity() {
+        this.quantity--;
+
+        if (quantity == 0) {
+            return false;
+        }
+
+        return true;
+    }
 }

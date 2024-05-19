@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -42,6 +43,9 @@ public class CartController implements Initializable {
     @FXML
     private AnchorPane mainCartArea;
 
+    @FXML
+    private TextField orderNotes;
+
     private static ObservableList<CartMenuItemModel> cartItemsList = FXCollections.observableArrayList();
 
     private static double totalBill = 0;
@@ -64,7 +68,8 @@ public class CartController implements Initializable {
 
     public void createOrder() {
         OrderModel orderModel = new OrderModel();
-        orderModel.setOrderDescription(" ");
+        orderModel.setOrderDescription(orderNotes.getText() == null ? " " : orderNotes.getText());
+        System.out.println(orderNotes.getText());
         orderModel.setOrderAmount(finalBill);
         orderModel.setFkCustomerId(Auth.customerId != 0 ? Auth.customerId : Auth.customerDetails.getCustomerId());
         orderModel.setOrderExtraCharges(0);
@@ -135,26 +140,54 @@ public class CartController implements Initializable {
     }
 
     public void addMenuItemToCart(CartMenuItemModel cartMenuItemToAdd) {
+        if (!increaseQuantity(cartMenuItemToAdd)) {
+            cartItemsList.add(cartMenuItemToAdd);
+        }
+    }
 
+    public boolean increaseQuantity(CartMenuItemModel cartMenuItemToAdd) {
         for (CartMenuItemModel m : cartItemsList) {
             if (m.getMenuItemName().equals(cartMenuItemToAdd.getMenuItemName())) {
                 m.increaseQuantity();
                 cartItemsList.set(cartItemsList.indexOf(m), m);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void quantityChange(String cartMenuItemToAdd, String changeType) {
+        for (CartMenuItemModel m : cartItemsList) {
+            if (m.getMenuItemName().equals(cartMenuItemToAdd)) {
+                if (changeType.equals("increase")) {
+                    m.increaseQuantity();
+                } else if (changeType.equals("reduce")) {
+                    if (!m.decreaseQuantity()) {
+                        removeMenuItemFromCart(cartMenuItemToAdd);
+                    }
+                }
+
+                if (cartItemsList.isEmpty()) {
+                    return;
+                }
+
+                cartItemsList.set(cartItemsList.indexOf(m), m);
                 return;
             }
         }
-
-        cartItemsList.add(cartMenuItemToAdd);
     }
 
     public void removeMenuItemFromCart(String cartMenuItemToRemove) {
+        CartMenuItemModel itemToRemove = new CartMenuItemModel();
+
         for (CartMenuItemModel m : cartItemsList) {
             if (m.getMenuItemName().equals(cartMenuItemToRemove)) {
-                System.out.println(m.getMenuItemName());
-                System.out.println(cartMenuItemToRemove);
-                cartItemsList.remove(m);
+                itemToRemove = m;
             }
         }
+
+        cartItemsList.remove(itemToRemove);
     }
 
     public ObservableList<CartMenuItemModel> getCartItemsList() {

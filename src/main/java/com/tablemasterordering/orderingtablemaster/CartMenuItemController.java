@@ -24,6 +24,7 @@ public class CartMenuItemController {
     @FXML
     private Text menuItemTotalPrice;
 
+
     public void setData(String menuItemTitle, String menuItemPrice, String menuItemQuantity, String menuItemTotalPrice) {
         this.menuItemTitle.setText(menuItemTitle);
         this.menuItemPrice.setText(menuItemPrice);
@@ -72,5 +73,19 @@ public class CartMenuItemController {
 
     public void setMenuItemTotalPrice(Text menuItemTotalPrice) {
         this.menuItemTotalPrice = menuItemTotalPrice;
+    }
+
+    public void changeQuantity(Event e) {
+        String source = ((Label) e.getSource()).getId();
+        String type = "increase";
+        CartController cartController = new CartController();
+
+        if (source.equals("increaseQuantityButton")) {
+            type = "increase";
+        } else if (source.equals("reduceQuantityButton")) {
+            type = "reduce";
+        }
+
+        cartController.quantityChange(menuItemTitle.getText(), type);
     }
 }
