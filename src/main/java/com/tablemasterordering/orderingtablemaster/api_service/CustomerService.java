@@ -1,11 +1,7 @@
 package com.tablemasterordering.orderingtablemaster.api_service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
-import com.tablemasterordering.orderingtablemaster.models.GetCustomerById;
-import com.tablemasterordering.orderingtablemaster.models.LoginModel;
-import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
+import com.tablemasterordering.orderingtablemaster.models.*;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;
@@ -57,5 +53,18 @@ public class CustomerService extends MainService {
         }
 
         return customerDetails;
+    }
+
+    public boolean saveCustomerAddress(SaveAddressRequest request) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        String reqBody = mapper.writeValueAsString(request);
+
+        HttpResponse<String> response = postRequest("customer/saveCustomerAddress", reqBody);
+
+        if (response.statusCode() == 201) {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="400.0" maxWidth="500.0" prefHeight="400.0" prefWidth="500.0" styleClass="transparent-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.CustomerAddressController">
+   <children>
+      <TextField fx:id="streetAddress" layoutX="50.0" layoutY="60.0" maxWidth="400.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="60.0">
+         <styleClass>
+            <String fx:value="input-field" />
+            <String fx:value="text-main" />
+         </styleClass>
+      </TextField>
+      <TextField fx:id="area" layoutX="50.0" layoutY="155.0" maxWidth="400.0" prefWidth="400.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="155.0">
+         <styleClass>
+            <String fx:value="input-field" />
+            <String fx:value="text-main" />
+         </styleClass>
+      </TextField>
+      <Label layoutX="50.0" layoutY="32.0" prefHeight="23.0" prefWidth="293.0" text="Street Address (House, apartement #)" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="157.0" AnchorPane.topAnchor="32.0">
+         <styleClass>
+            <String fx:value="text-body-medium" />
+            <String fx:value="text-secondary" />
+         </styleClass>
+      </Label>
+      <Label layoutX="50.0" layoutY="127.0" text="Area" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="127.0">
+         <styleClass>
+            <String fx:value="text-body-medium" />
+            <String fx:value="text-secondary" />
+         </styleClass>
+      </Label>
+      <TextField editable="false" layoutX="50.0" layoutY="250.0" maxWidth="400.0" prefWidth="400.0" text="Lahore" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="250.0">
+         <styleClass>
+            <String fx:value="input-field" />
+            <String fx:value="text-main" />
+         </styleClass>
+      </TextField>
+      <Label layoutX="50.0" layoutY="222.0" text="City" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="222.0">
+         <styleClass>
+            <String fx:value="text-body-medium" />
+            <String fx:value="text-secondary" />
+         </styleClass>
+      </Label>
+      <Button fx:id="saveAddressButton" mnemonicParsing="false" onAction="#handleAddress" prefWidth="190.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" text="Save Address" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <styleClass>
+            <String fx:value="primary-background" />
+            <String fx:value="text-body" />
+            <String fx:value="text-main" />
+         </styleClass>
+      </Button>
+      <Button fx:id="skipAddressButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAddress" prefWidth="190.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" text="Skip for Now" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0">
+         <styleClass>
+            <String fx:value="transparent-background" />
+            <String fx:value="text-body" />
+            <String fx:value="primary-color-text" />
+            <String fx:value="primary-color-border" />
+         </styleClass>
+      </Button>
+   </children>
+</AnchorPane>

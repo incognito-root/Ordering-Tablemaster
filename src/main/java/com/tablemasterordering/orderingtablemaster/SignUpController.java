@@ -1,6 +1,7 @@
 package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.helper_functions.InputValidations;
 import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
+import java.net.http.HttpResponse;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -85,7 +87,8 @@ public class SignUpController implements Initializable {
             boolean signedUp = customerService.customerSignUp(customer);
 
             if (signedUp) {
-                redirectToLogin();
+//                redirectToLogin();
+                redirectToAddressSelection();
             }
 
         } catch (IOException e) {
@@ -96,6 +99,11 @@ public class SignUpController implements Initializable {
     public void redirectToLogin() throws IOException {
         SceneSwitcher sceneSwitcher = new SceneSwitcher("test");
         sceneSwitcher.switchScene("login.fxml", emailField);
+    }
+
+    public void redirectToAddressSelection() throws IOException {
+        SceneSwitcher sceneSwitcher = new SceneSwitcher("test");
+        sceneSwitcher.switchScene("address-after-signup-page.fxml", emailField);
     }
 
     public void validateField(Event e) {
