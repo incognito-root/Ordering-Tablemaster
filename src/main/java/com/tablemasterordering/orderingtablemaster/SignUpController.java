@@ -4,6 +4,8 @@ import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.helper_functions.InputValidations;
 import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
+import com.tablemasterordering.orderingtablemaster.models.LoginModel;
+import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -85,6 +87,9 @@ public class SignUpController implements Initializable {
         try {
             CustomerService customerService = new CustomerService();
             boolean signedUp = customerService.customerSignUp(customer);
+
+            LoginResponseModel c = customerService.customerLogin(new LoginModel(customer.getEmail(), customer.getPassword()));
+            Auth.setCustomerDetails(c.getId());
 
             if (signedUp) {
 //                redirectToLogin();
