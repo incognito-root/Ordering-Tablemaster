@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane fx:id="mainHomeArea" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.HomeController">
+<AnchorPane fx:id="mainHomeArea" maxHeight="670.0" maxWidth="1100.0" minHeight="670.0" minWidth="1100.0" prefHeight="670.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.HomeController">
    <children>
       <StackPane fx:id="mainStackPane">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1180.0" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #252836;" stylesheets="@styles.css">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="670.0" minWidth="1100.0" prefHeight="670.0" prefWidth="1100.0" style="-fx-background-color: #252836;" stylesheets="@styles.css">
                 <children>
                     <TextField editable="false" text="Table Master" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                         <styleClass>
@@ -29,11 +29,11 @@
                         <tabs>
                             <Tab text="All Menu Items">
                            <content>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                              <AnchorPane prefHeight="545.0" prefWidth="200.0">
                                  <children>
-                                      <ScrollPane hbarPolicy="NEVER" prefHeight="500.0" prefWidth="1180.0" styleClass="transparent-background" stylesheets="@styles.css" AnchorPane.topAnchor="30.0">
+                                      <ScrollPane hbarPolicy="NEVER" prefWidth="1095.0" styleClass="transparent-background" stylesheets="@styles.css" AnchorPane.topAnchor="30.0">
                                           <content>
-                                              <TilePane fx:id="menuItemsArea" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1150.0" stylesheets="@styles.css">
+                                              <TilePane fx:id="menuItemsArea" alignment="TOP_CENTER" prefHeight="440.0" prefWidth="1070.0" stylesheets="@styles.css">
                                                   <styleClass>
                                                       <String fx:value="transparent-background" />
                                                       <String fx:value="menu-item-area-main" />

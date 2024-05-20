@@ -25,7 +25,7 @@ public class MainApplication extends Application {
         }
 
         stage.setResizable(false);
-        scene = new Scene(fxmlLoader.load(), 1280, 720);
+        scene = new Scene(fxmlLoader.load(), 1200, 670);
         stage.setScene(scene);
         stage.show();
     }

@@ -10,77 +10,77 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #252836;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.SignUpController">
+<AnchorPane maxHeight="670.0" maxWidth="1100.0" minHeight="670.0" minWidth="1100.0" prefHeight="670.0" prefWidth="1100.0" style="-fx-background-color: #252836;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.SignUpController">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="482.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="669.0" fitWidth="480.0" layoutX="-56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/signup-image.jpg" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="720.0" prefWidth="798.0" style="-fx-background-color: #252836;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="670.0" prefWidth="798.0" style="-fx-background-color: #252836;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="36.0" layoutY="15.0" text="Sign Up to Start Ordering" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="25.0">
+            <Label layoutX="36.0" layoutY="15.0" text="Sign Up to Start Ordering" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="25.0">
                <styleClass>
                   <String fx:value="h1" />
                   <String fx:value="text-main" />
                </styleClass>
             </Label>
-            <Label fx:id="firstNameLabel" layoutX="36.0" layoutY="91.0" text="First Name" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="91.0">
+            <Label fx:id="firstNameLabel" layoutX="36.0" layoutY="91.0" text="First Name" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="91.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <TextField fx:id="firstNameField" layoutX="36.0" layoutY="131.0" onKeyReleased="#validateField" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="131.0">
+            <TextField fx:id="firstNameField" layoutX="36.0" layoutY="131.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="121.0">
                <styleClass>
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <Label fx:id="lastNameLabel" layoutX="414.0" layoutY="91.0" text="Last Name" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="91.0">
+            <Label fx:id="lastNameLabel" layoutX="414.0" layoutY="91.0" text="Last Name" AnchorPane.leftAnchor="444.0" AnchorPane.topAnchor="91.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <TextField fx:id="lastNameField" layoutX="414.0" layoutY="131.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="131.0">
+            <TextField fx:id="lastNameField" layoutX="414.0" layoutY="131.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="121.0">
                <styleClass>
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <Label fx:id="emailLabel" layoutX="36.0" layoutY="226.0" text="Email" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="226.0">
+            <Label fx:id="emailLabel" layoutX="36.0" layoutY="226.0" text="Email" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="210.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <TextField fx:id="emailField" layoutX="36.0" layoutY="266.0" onKeyReleased="#validateField" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="266.0">
+            <TextField fx:id="emailField" layoutX="36.0" layoutY="266.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="246.0">
                <styleClass>
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <Label fx:id="contactNumberLabel" layoutX="414.0" layoutY="226.0" text="Contact Number" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="226.0">
+            <Label fx:id="contactNumberLabel" layoutX="414.0" layoutY="226.0" text="Contact Number" AnchorPane.leftAnchor="444.0" AnchorPane.topAnchor="210.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <TextField fx:id="contactNumberField" layoutX="414.0" layoutY="266.0" onKeyReleased="#validateField" AnchorPane.leftAnchor="414.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="266.0">
+            <TextField fx:id="contactNumberField" layoutX="414.0" layoutY="266.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="246.0">
                <styleClass>
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <Label fx:id="ageLabel" layoutX="36.0" layoutY="361.0" text="Age" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="361.0">
+            <Label fx:id="ageLabel" layoutX="36.0" layoutY="361.0" text="Age" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="330.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <TextField fx:id="ageField" layoutX="36.0" layoutY="401.0" onKeyReleased="#validateField" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="401.0">
+            <TextField fx:id="ageField" layoutX="36.0" layoutY="401.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="360.0">
                <styleClass>
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <RadioButton fx:id="radioButtonMale" layoutX="520.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectGender" text="Male" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="417.0">
+            <RadioButton fx:id="radioButtonMale" layoutX="520.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectGender" text="Male" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="360.0">
                <styleClass>
                   <String fx:value="text-main" />
                   <String fx:value="text-body" />
@@ -89,47 +89,47 @@
                   <ToggleGroup fx:id="genderToggle" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="radioButtonFemale" layoutX="600.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectGender" text="Female" toggleGroup="$genderToggle" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="417.0">
+            <RadioButton fx:id="radioButtonFemale" layoutX="614.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectGender" text="Female" toggleGroup="$genderToggle" AnchorPane.leftAnchor="634.0" AnchorPane.topAnchor="360.0">
                <styleClass>
                   <String fx:value="text-main" />
                   <String fx:value="text-body" />
                </styleClass>
             </RadioButton>
-            <Label layoutX="420.0" layoutY="417.0" text="Gender" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="417.0">
+            <Label layoutX="420.0" layoutY="417.0" text="Gender" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="360.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <Label fx:id="passwordLabel" layoutX="36.0" layoutY="496.0" text="Password" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="496.0">
+            <Label fx:id="passwordLabel" layoutX="36.0" layoutY="496.0" text="Password" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="450.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <TextField fx:id="passwordField" layoutX="36.0" layoutY="536.0" onKeyReleased="#validateField" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="536.0">
+            <TextField fx:id="passwordField" layoutX="36.0" layoutY="536.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="480.0">
                <styleClass>
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <TextField fx:id="confirmPasswordField" layoutX="414.0" layoutY="536.0" onKeyReleased="#validateField" AnchorPane.leftAnchor="414.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="536.0">
+            <TextField fx:id="confirmPasswordField" layoutX="414.0" layoutY="536.0" onKeyReleased="#validateField" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="480.0">
                <styleClass>
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <Label fx:id="confirmPasswordLabel" layoutX="414.0" layoutY="496.0" text="Confirm Password" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="496.0">
+            <Label fx:id="confirmPasswordLabel" layoutX="414.0" layoutY="496.0" text="Confirm Password" AnchorPane.leftAnchor="444.0" AnchorPane.topAnchor="450.0">
                <styleClass>
                   <String fx:value="text-secondary" />
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#sendSignUpRequest" text="Sign Up" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="36.0">
+            <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#sendSignUpRequest" text="Sign Up" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="412.0">
                <styleClass>
                   <String fx:value="login-sign-up-buttons-main" />
                   <String fx:value="h3" />
                   <String fx:value="cursor-pointer" />
                </styleClass></Button>
-            <Label layoutX="423.0" layoutY="654.0" text="By signing up you agree to our privacy policies">
+            <Label layoutX="485.0" layoutY="593.0" text="By signing up you agree to our privacy policies">
                <styleClass>
                   <String fx:value="body-smaller" />
                   <String fx:value="text-main" />
