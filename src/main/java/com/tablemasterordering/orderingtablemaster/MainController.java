@@ -2,16 +2,19 @@ package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.models.NavigationMenuItemModel;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
     @FXML
     private BorderPane mainBorderPane;
@@ -27,11 +30,10 @@ public class MainController {
 
     private final Map<String, String[]> navItems = new HashMap<>();
 
-    private final SceneSwitcher sceneSwitcher;
+    private SceneSwitcher sceneSwitcher;
 
     public MainController() {
-        sceneSwitcher = new SceneSwitcher();
-        initNavigationItems();
+
     }
 
     @FXML
@@ -47,6 +49,7 @@ public class MainController {
         deactivateMenuItems();
 
         String[] relatedItems = navItems.get(sourceId);
+
         if (relatedItems != null) {
             NavigationMenuItemModel navigationMenuItemModel = new NavigationMenuItemModel();
             navigationMenuItemModel.setInactiveImageView((ImageView) event.getSource());
@@ -95,5 +98,23 @@ public class MainController {
         navItems.put("navNotificationsInactive", new String[]{"navNotificationsActive", "navNotificationsBackground"});
         navItems.put("navSettingsActive", new String[]{"navSettingsInactive", "navSettingsBackground"});
         navItems.put("navSettingsInactive", new String[]{"navSettingsActive", "navSettingsBackground"});
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        sceneSwitcher = new SceneSwitcher();
+        initNavigationItems();
+
+        NavigationMenuItemModel navigationMenuItemModel = new NavigationMenuItemModel();
+        navigationMenuItemModel.setInactiveImageView(navHomeInactive);
+        navigationMenuItemModel.setActiveImageView(navHomeActive);
+        navigationMenuItemModel.setBackgroundRectangle(navHomeBackground);
+
+        try {
+            sceneSwitcher.switchScene(navigationMenuItemModel, mainBorderPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

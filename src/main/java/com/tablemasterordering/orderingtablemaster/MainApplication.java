@@ -24,6 +24,7 @@ public class MainApplication extends Application {
             fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
         }
 
+        stage.setResizable(false);
         scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setScene(scene);
         stage.show();

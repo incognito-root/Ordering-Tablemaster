@@ -1,6 +1,8 @@
 package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.MenuService;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Popup;
+import com.tablemasterordering.orderingtablemaster.helper_functions.PopupTypeEnum;
 import com.tablemasterordering.orderingtablemaster.models.CartMenuItemModel;
 import com.tablemasterordering.orderingtablemaster.models.MenuItemModel;
 import javafx.animation.TranslateTransition;
@@ -9,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -95,6 +98,12 @@ public class HomeController implements Initializable {
     }
 
     public void showCart() throws IOException {
+
+        if (CartController.getCartItemsList().isEmpty()) {
+            Popup.showPopup(PopupTypeEnum.ERROR, CartController.emptyCartMessage, CartController.emptyCartMessage);
+            return;
+        }
+
         mainCartArea.setVisible(true);
         mainCartArea.setTranslateX(mainCartArea.getBoundsInParent().getWidth());
         TranslateTransition transition = new TranslateTransition(Duration.seconds(1), mainCartArea);

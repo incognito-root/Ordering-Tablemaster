@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/helper_functions/Popup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/helper_functions/PopupTypeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cookie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cookie.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/CartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +24,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -173,7 +177,8 @@
       <workItem from="1716040605989" duration="12132000" />
       <workItem from="1716093300000" duration="8473000" />
       <workItem from="1716108987344" duration="10407000" />
-      <workItem from="1716157270856" duration="4902000" />
+      <workItem from="1716157270856" duration="7270000" />
+      <workItem from="1716183684184" duration="1362000" />
     </task>
     <servers />
   </component>

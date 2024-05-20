@@ -2,6 +2,8 @@ package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.OrderService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Popup;
+import com.tablemasterordering.orderingtablemaster.helper_functions.PopupTypeEnum;
 import com.tablemasterordering.orderingtablemaster.models.CartMenuItemModel;
 import com.tablemasterordering.orderingtablemaster.models.OrderDetailModel;
 import com.tablemasterordering.orderingtablemaster.models.OrderModel;
@@ -54,6 +56,10 @@ public class CartController implements Initializable {
 
     private static double finalBill = 0;
 
+    public static final String emptyCartMessage = "Cart Is Empty. Please add some items to cart first";
+
+    public static final String emptyCartTitle = "Empty Cart";
+
     public CartController() {
     }
 
@@ -66,7 +72,19 @@ public class CartController implements Initializable {
         mainCartArea.setBackground(background);
     }
 
+    private void emptyCart() {
+        this.cartItemsList.clear();
+        this.cartItems.getChildren().clear();
+    }
+
     public void createOrder() {
+
+        if (cartItemsList.isEmpty()) {
+            Popup.showPopup(PopupTypeEnum.ERROR, emptyCartMessage, emptyCartTitle);
+            closeCart();
+            return;
+        }
+
         OrderModel orderModel = new OrderModel();
         orderModel.setOrderDescription(orderNotes.getText() == null ? " " : orderNotes.getText());
         System.out.println(orderNotes.getText());
@@ -89,6 +107,8 @@ public class CartController implements Initializable {
 
             if (orderCreated) {
                 closeCart();
+                emptyCart();
+
             }
 
         } catch (IOException e) {
@@ -202,7 +222,9 @@ public class CartController implements Initializable {
         cartItemsList.remove(itemToRemove);
     }
 
-    public ObservableList<CartMenuItemModel> getCartItemsList() {
+
+
+    public static ObservableList<CartMenuItemModel> getCartItemsList() {
         return cartItemsList;
     }
 }
