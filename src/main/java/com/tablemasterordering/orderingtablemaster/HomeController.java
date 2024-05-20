@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
@@ -31,6 +32,9 @@ public class HomeController implements Initializable {
 
     @FXML
     StackPane mainStackPane;
+
+    @FXML
+    TextField searchField;
 
     private AnchorPane mainCartArea;
 
@@ -55,6 +59,31 @@ public class HomeController implements Initializable {
             menuItemsArea.getChildren().add(anchorPane);
         }
 
+    }
+
+    public void fillData(MenuItemModel details) throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
+            AnchorPane anchorPane = loader.load();
+            MenuItemController paneController = loader.getController();
+
+            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemName(), details.getMenuItemImage());
+
+            CartMenuItemModel cartMenuItemModel = new CartMenuItemModel(details);
+            paneController.setSelectedCartMenuItem(cartMenuItemModel);
+
+            menuItemsArea.getChildren().add(anchorPane);
+    }
+
+    public void search() throws IOException {
+        String searchText = searchField.getText();
+
+        menuItemsArea.getChildren().clear();
+
+        for (MenuItemModel item : allMenuItems) {
+            if (item.getMenuItemName().toLowerCase().contains(searchText.toLowerCase())) {
+                fillData(item);
+            }
+        }
     }
 
     private void initializeCart() throws IOException {

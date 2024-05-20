@@ -160,11 +160,23 @@ public class CartController implements Initializable {
     public void quantityChange(String cartMenuItemToAdd, String changeType) {
         for (CartMenuItemModel m : cartItemsList) {
             if (m.getMenuItemName().equals(cartMenuItemToAdd)) {
+                boolean quantityChanged = false;
+
                 if (changeType.equals("increase")) {
                     m.increaseQuantity();
+                    quantityChanged = true;
                 } else if (changeType.equals("reduce")) {
                     if (!m.decreaseQuantity()) {
                         removeMenuItemFromCart(cartMenuItemToAdd);
+                    } else {
+                        quantityChanged = true;
+                    }
+                }
+
+                if (quantityChanged) {
+                    int index = cartItemsList.indexOf(m);
+                    if (index >= 0) {
+                        cartItemsList.set(index, m);
                     }
                 }
 
@@ -172,7 +184,7 @@ public class CartController implements Initializable {
                     return;
                 }
 
-                cartItemsList.set(cartItemsList.indexOf(m), m);
+//                cartItemsList.set(cartItemsList.indexOf(m), m);
                 return;
             }
         }

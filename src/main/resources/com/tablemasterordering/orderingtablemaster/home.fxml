@@ -53,7 +53,7 @@
                             <Image url="@../images/search-icon.png" />
                         </image>
                     </ImageView>
-                    <TextField promptText=" Enter" styleClass="input-field" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="30.0" />
+                    <TextField fx:id="searchField" onKeyReleased="#search" promptText=" Enter" styleClass="input-field" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="30.0" />
                     <ImageView fx:id="cartButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#showCart" pickOnBounds="true" preserveRatio="true" styleClass="cursor-pointer" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="32.0">
                         <image>
                             <Image url="@../images/cart2.png" />
