@@ -87,4 +87,20 @@ public class CustomerService extends MainService {
 
         return dashboardData;
     }
+
+    public double getDiscount() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        HttpResponse<String> response = getRequest("discount/getActiveDiscount");
+
+        DiscountModel discountModel = mapper.readValue(response.body(), DiscountModel.class);
+
+        if (response.statusCode() == 403) {
+            System.out.println("Bad Request");
+        } else if (response.statusCode() == 200) {
+            return discountModel.getDiscountAmount();
+        }
+
+        return 0;
+    }
 }

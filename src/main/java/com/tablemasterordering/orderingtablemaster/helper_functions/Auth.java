@@ -13,6 +13,8 @@ public class Auth {
 
     public static CustomerModel customerDetails;
 
+    public static double discount;
+
     public static boolean checkSignedInStatus() {
         String idFromCookie = "";
 
@@ -58,5 +60,10 @@ public class Auth {
     public static void setCustomerDetails(long cId) throws IOException {
         CustomerService customerService = new CustomerService();
         customerDetails = customerService.getCustomerDetails(new GetCustomerById(cId));
+    }
+
+    public static void setDiscount() throws IOException {
+        CustomerService customerService =  new CustomerService();
+        discount = customerService.getDiscount();
     }
 }

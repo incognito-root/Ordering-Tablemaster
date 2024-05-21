@@ -77,8 +77,8 @@
                 <TableView fx:id="allOrders" prefHeight="343.0" prefWidth="721.0">
                     <columns>
                         <TableColumn fx:id="tableOrderDate" editable="false" maxWidth="243.61109161376953" prefWidth="184.79169464111328" resizable="false" text="Date" />
-                        <TableColumn fx:id="tableOrderPayment" editable="false" prefWidth="223.73614501953125" text="Total Bill" />
-                        <TableColumn fx:id="tableOrderNotes" editable="false" maxWidth="292.2637939453125" prefWidth="292.2637939453125" text="Notes" />
+                        <TableColumn fx:id="tableOrderPayment" editable="false" prefWidth="223.73614501953125" resizable="false" text="Total Bill" />
+                        <TableColumn fx:id="tableOrderNotes" editable="false" maxWidth="292.2637939453125" prefWidth="292.2637939453125" resizable="false" text="Notes" />
                     </columns>
                     <padding>
                         <Insets right="20.0" />

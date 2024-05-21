@@ -61,6 +61,8 @@ public class CartController implements Initializable {
 
     private static double finalBill = 0;
 
+    private static double cartDiscountValue = 0;
+
     public static final String emptyCartMessage = "Cart Is Empty. Please add some items to cart first";
 
     public static final String emptyCartTitle = "Empty Cart";
@@ -154,7 +156,7 @@ public class CartController implements Initializable {
         totalBill = 0;
 
         for (CartMenuItemModel item : cartItemsList) {
-            try{
+            try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("cart-menu-item-card.fxml"));
                 AnchorPane anchorPane = loader.load();
                 CartMenuItemController paneController = loader.getController();
@@ -169,12 +171,13 @@ public class CartController implements Initializable {
         }
 
         billTax = 0.16 * totalBill;
-        finalBill = totalBill + billTax;
+        cartDiscountValue = (Auth.discount / 100) * totalBill;
+        finalBill = (totalBill + billTax) - cartDiscountValue;
 
         cartTax.setText(String.valueOf(billTax));
         cartTotal.setText(String.valueOf(totalBill));
         cartSubTotal.setText(String.valueOf(finalBill));
-        cartDiscount.setText(String.valueOf(0));
+        cartDiscount.setText(String.valueOf(cartDiscountValue));
     }
 
     public void addMenuItemToCart(CartMenuItemModel cartMenuItemToAdd) {
@@ -239,7 +242,6 @@ public class CartController implements Initializable {
 
         cartItemsList.remove(itemToRemove);
     }
-
 
 
     public static ObservableList<CartMenuItemModel> getCartItemsList() {

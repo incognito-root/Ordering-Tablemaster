@@ -24,6 +24,8 @@ public class MainApplication extends Application {
             fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
         }
 
+        Auth.setDiscount();
+
         stage.setResizable(false);
         scene = new Scene(fxmlLoader.load(), 1200, 670);
         stage.setScene(scene);
