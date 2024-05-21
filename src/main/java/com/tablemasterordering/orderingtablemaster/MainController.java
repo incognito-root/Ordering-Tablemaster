@@ -8,6 +8,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -35,7 +37,20 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void exitApp() {
+    void exitApp() throws IOException {
+        BufferedWriter writer = null;
+
+        try {
+            writer = new BufferedWriter(new FileWriter("cookie.txt"));
+            writer.write("");
+        } catch (IOException e) {
+            System.out.println("Error in writing to file: " + e.getMessage());
+        } finally {
+            if (writer != null) {
+                writer.close();
+            }
+        }
+
         System.exit(0);
     }
 

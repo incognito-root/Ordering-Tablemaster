@@ -13,6 +13,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -48,6 +50,9 @@ public class CartController implements Initializable {
     @FXML
     private TextField orderNotes;
 
+    @FXML
+    private Label cartAddress;
+
     private static ObservableList<CartMenuItemModel> cartItemsList = FXCollections.observableArrayList();
 
     private static double totalBill = 0;
@@ -59,6 +64,10 @@ public class CartController implements Initializable {
     public static final String emptyCartMessage = "Cart Is Empty. Please add some items to cart first";
 
     public static final String emptyCartTitle = "Empty Cart";
+
+    public static final String noAddressMessage = "Cannot Place an Order without Address. Set Address in Settings First Please";
+
+    public static final String noAddressTitle = "Address Missing";
 
     public CartController() {
     }
@@ -81,6 +90,12 @@ public class CartController implements Initializable {
 
         if (cartItemsList.isEmpty()) {
             Popup.showPopup(PopupTypeEnum.ERROR, emptyCartMessage, emptyCartTitle);
+            closeCart();
+            return;
+        }
+
+        if (cartAddress.getText().equals("Save In Settings")) {
+            Popup.showPopup(PopupTypeEnum.ERROR, noAddressMessage, noAddressTitle);
             closeCart();
             return;
         }
@@ -129,6 +144,9 @@ public class CartController implements Initializable {
 
         updateCartView();
 
+        if (!Auth.customerDetails.getAddress().isEmpty()) {
+            cartAddress.setText(Auth.customerDetails.getAddress());
+        }
     }
 
     private void updateCartView() {

@@ -38,4 +38,36 @@ public class CustomerAddressController {
 
         sceneSwitcher.switchScene("main-screen.fxml", saveAddressButton);
     }
+
+    public Button getSaveAddressButton() {
+        return saveAddressButton;
+    }
+
+    public void setSaveAddressButton(Button saveAddressButton) {
+        this.saveAddressButton = saveAddressButton;
+    }
+
+    public Button getSkipAddressButton() {
+        return skipAddressButton;
+    }
+
+    public void setSkipAddressButton(Button skipAddressButton) {
+        this.skipAddressButton = skipAddressButton;
+    }
+
+    public TextField getArea() {
+        return area;
+    }
+
+    public void setArea(TextField area) {
+        this.area = area;
+    }
+
+    public TextField getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(TextField streetAddress) {
+        this.streetAddress = streetAddress;
+    }
 }
