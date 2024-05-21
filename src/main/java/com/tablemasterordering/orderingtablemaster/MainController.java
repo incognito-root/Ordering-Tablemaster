@@ -21,12 +21,10 @@ public class MainController implements Initializable {
 
     @FXML
     private ImageView navDashboardActive, navDashboardInactive, navHomeActive, navHomeInactive,
-            navMessagesActive, navMessagesInactive, navNotificationsActive, navNotificationsInactive,
             navSettingsActive, navSettingsInactive;
 
     @FXML
-    private Rectangle navDashboardBackground, navHomeBackground, navMessagesBackground,
-            navNotificationsBackground, navSettingsBackground;
+    private Rectangle navDashboardBackground, navHomeBackground, navSettingsBackground;
 
     private final Map<String, String[]> navItems = new HashMap<>();
 
@@ -74,14 +72,6 @@ public class MainController implements Initializable {
         navHomeInactive.setVisible(true);
         navHomeBackground.setVisible(false);
 
-        navMessagesActive.setVisible(false);
-        navMessagesInactive.setVisible(true);
-        navMessagesBackground.setVisible(false);
-
-        navNotificationsActive.setVisible(false);
-        navNotificationsInactive.setVisible(true);
-        navNotificationsBackground.setVisible(false);
-
         navSettingsActive.setVisible(false);
         navSettingsInactive.setVisible(true);
         navSettingsBackground.setVisible(false);
@@ -92,10 +82,6 @@ public class MainController implements Initializable {
         navItems.put("navHomeInactive", new String[]{"navHomeActive", "navHomeBackground"});
         navItems.put("navDashboardActive", new String[]{"navDashboardInactive", "navDashboardBackground"});
         navItems.put("navDashboardInactive", new String[]{"navDashboardActive", "navDashboardBackground"});
-        navItems.put("navMessagesActive", new String[]{"navMessagesInactive", "navMessagesBackground"});
-        navItems.put("navMessagesInactive", new String[]{"navMessagesActive", "navMessagesBackground"});
-        navItems.put("navNotificationsActive", new String[]{"navNotificationsInactive", "navNotificationsBackground"});
-        navItems.put("navNotificationsInactive", new String[]{"navNotificationsActive", "navNotificationsBackground"});
         navItems.put("navSettingsActive", new String[]{"navSettingsInactive", "navSettingsBackground"});
         navItems.put("navSettingsInactive", new String[]{"navSettingsActive", "navSettingsBackground"});
     }

@@ -1,70 +1,92 @@
 package com.tablemasterordering.orderingtablemaster;
 
-import com.tablemasterordering.orderingtablemaster.models.ComponentDetailsModel;
-import com.tablemasterordering.orderingtablemaster.models.DiscountModel;
-import javafx.application.Platform;
+import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
+import com.tablemasterordering.orderingtablemaster.models.DashboardModel;
+import com.tablemasterordering.orderingtablemaster.models.GetCustomerById;
+import com.tablemasterordering.orderingtablemaster.models.GetOrdersModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class DashboardController {
-    @FXML
-    private VBox mostOrderedList;
+public class DashboardController implements Initializable {
 
     @FXML
-    private VBox discountsList;
+    private Label addressLabel;
 
-    public DashboardController() {
-        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.schedule(() -> Platform.runLater(() -> {
-            try {
-                fillDiscountData();
-                fillMostOrderedData();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }), 3, TimeUnit.SECONDS);
-    }
+    @FXML
+    private Text discountsLabel;
 
-    public void fillMostOrderedData() throws IOException {
-        ArrayList<ComponentDetailsModel> allDetails = new ArrayList<>();
-        allDetails.add(new ComponentDetailsModel("img", "text", "text"));
-        allDetails.add(new ComponentDetailsModel("img2", "text2", "text2"));
-        allDetails.add(new ComponentDetailsModel("img3", "text3", "text3"));
+    @FXML
+    private Label menuItemDescription;
 
-        fillData(allDetails, mostOrderedList);
-    }
+    @FXML
+    private Label menuItemPrice;
 
-    public void fillDiscountData() throws IOException {
-        ArrayList<DiscountModel> allDetails = new ArrayList<>();
-        allDetails.add(new DiscountModel("img0", "text0", "text0"));
-        allDetails.add(new DiscountModel("img4", "text4", "text4"));
-        allDetails.add(new DiscountModel("img5", "text5", "text5"));
+    @FXML
+    private Label menuItemTitle;
 
-        fillData(allDetails, discountsList);
-    }
+    @FXML
+    private Text totalOrdersLabel;
 
-    public void fillData(ArrayList<? extends ComponentDetailsModel> dataList, VBox parentList) throws IOException {
+    @FXML
+    private TableView<GetOrdersModel> allOrders;
 
-        for (ComponentDetailsModel details : dataList) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("details-pane.fxml"));
-            AnchorPane anchorPane = loader.load();
-            DetailsPaneController paneController = loader.getController();
+    @FXML
+    private TableColumn<?, ?> tableOrderDate;
 
-            if (details instanceof DiscountModel) {
-                ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-                executorService.schedule(() -> Platform.runLater(() -> paneController.getDetailsPaneArrow().setVisible(true)), 1, TimeUnit.SECONDS);
+    @FXML
+    private TableColumn<?, ?> tableOrderNotes;
+
+    @FXML
+    private TableColumn<?, ?> tableOrderPayment;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            DashboardModel dashboardModel = new CustomerService().getCustomerDashboardData(new GetCustomerById(Auth.customerDetails.getCustomerId()));
+
+            if (dashboardModel.getTotalOrders() > 0) {
+                totalOrdersLabel.setText(dashboardModel.getTotalOrders() + " Orders");
             }
 
-            paneController.setData(details.getImage(), details.getTitleText(), details.getDescriptionText());
-            parentList.getChildren().add(anchorPane);
+            if (dashboardModel.getOngoingDiscount().getDiscountAmount() > 0) {
+                discountsLabel.setText(dashboardModel.getOngoingDiscount().getDiscountTitle() + "  " + dashboardModel.getOngoingDiscount().getDiscountAmount() + " % Off");
+            }
+
+            if (!dashboardModel.getAddress().isEmpty()) {
+                addressLabel.setText(dashboardModel.getAddress());
+            }
+
+            if (dashboardModel.getMostOrderedMenuItem() != null) {
+                menuItemTitle.setText(dashboardModel.getMostOrderedMenuItem().getMenuItemName());
+                menuItemDescription.setText(dashboardModel.getMostOrderedMenuItem().getMenuItemDescription());
+                menuItemDescription.setVisible(true);
+                menuItemPrice.setText(String.format("%.2f", dashboardModel.getMostOrderedMenuItem().getMenuItemPrice()));
+                menuItemPrice.setVisible(true);
+            }
+
+            // Bind data to table columns
+            tableOrderDate.setCellValueFactory(new PropertyValueFactory<>("orderPlacedDate"));
+            tableOrderNotes.setCellValueFactory(new PropertyValueFactory<>("orderDescription"));
+            tableOrderPayment.setCellValueFactory(new PropertyValueFactory<>("orderAmount"));
+
+            // Add orders to the table
+            ObservableList<GetOrdersModel> ordersModels = FXCollections.observableArrayList(dashboardModel.getOrders());
+            allOrders.setItems(ordersModels);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -24,8 +24,6 @@ public class SceneSwitcher {
         sceneMap = new HashMap<>(Map.ofEntries(
                 Map.entry("navHomeInactive", "home.fxml"),
                 Map.entry("navDashboardInactive", "dashboard.fxml"),
-                Map.entry("navMessagesInactive", "messages.fxml"),
-                Map.entry("navNotificationsInactive", "notifications.fxml"),
                 Map.entry("navSettingsInactive", "settings.fxml")
         ));
     }
