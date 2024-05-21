@@ -49,6 +49,7 @@ public class SceneSwitcher {
         Stage stage = (Stage) node.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource(path));
         Scene scene = new Scene(loader.load());
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
