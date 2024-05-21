@@ -76,12 +76,10 @@ public class DashboardController implements Initializable {
                 menuItemPrice.setVisible(true);
             }
 
-            // Bind data to table columns
             tableOrderDate.setCellValueFactory(new PropertyValueFactory<>("orderPlacedDate"));
             tableOrderNotes.setCellValueFactory(new PropertyValueFactory<>("orderDescription"));
             tableOrderPayment.setCellValueFactory(new PropertyValueFactory<>("orderAmount"));
 
-            // Add orders to the table
             ObservableList<GetOrdersModel> ordersModels = FXCollections.observableArrayList(dashboardModel.getOrders());
             allOrders.setItems(ordersModels);
 
