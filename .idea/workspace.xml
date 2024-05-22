@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/api_service/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasterordering/orderingtablemaster/api_service/MainService.java" afterDir="false" />
-    </list>
+    <list default="true" id="70e578fe-258f-4e9d-81ce-c93753381c86" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +178,7 @@
       <workItem from="1716290273261" duration="432000" />
       <workItem from="1716317975127" duration="541000" />
       <workItem from="1716348201513" duration="859000" />
-      <workItem from="1716373685702" duration="465000" />
+      <workItem from="1716373685702" duration="572000" />
     </task>
     <servers />
   </component>
