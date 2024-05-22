@@ -26,8 +26,6 @@ public class MenuItemController {
     @FXML
     private Text menuItemTitle;
 
-    private final String path = "/Users/ayaan/MyProjects/Ordering-Tablemaster";
-
     private CartMenuItemModel selectedCartMenuItem;
 
     public void setData(String menuItemPrice, String menuItemTitle, String menuItemImage) throws FileNotFoundException {
@@ -41,11 +39,7 @@ public class MenuItemController {
     }
 
     public void setMenuItemImage(String menuItemImage) throws FileNotFoundException {
-        if (menuItemImage != null) {
-            FileInputStream fis = new FileInputStream(path + "/src/main/resources/com/tablemasterordering/images/burger-demo.png");
-            Image image = new Image(fis);
-            this.menuItemImage.setImage(image);
-        }
+
     }
 
     public Text getMenuItemPrice() {
