@@ -2,7 +2,6 @@ package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
-import com.tablemasterordering.orderingtablemaster.models.GetCustomerById;
 import com.tablemasterordering.orderingtablemaster.models.LoginModel;
 import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
 import javafx.event.ActionEvent;
@@ -42,6 +41,10 @@ public class LoginController {
 
         CustomerService customerService = new CustomerService();
         LoginResponseModel loginResponseModel = customerService.customerLogin(customer);
+
+        if (loginResponseModel == null) {
+            return;
+        }
 
         if (loginResponseModel.getId() != 0) {
 

@@ -10,9 +10,6 @@ import javafx.scene.text.Text;
 
 public class CartMenuItemController {
     @FXML
-    private ImageView menuItemImage;
-
-    @FXML
     private Text menuItemPrice;
 
     @FXML
@@ -33,14 +30,6 @@ public class CartMenuItemController {
     }
 
     public CartMenuItemController() {
-    }
-
-    public ImageView getMenuItemImage() {
-        return menuItemImage;
-    }
-
-    public void setMenuItemImage(ImageView menuItemImage) {
-        this.menuItemImage = menuItemImage;
     }
 
     public Text getMenuItemPrice() {

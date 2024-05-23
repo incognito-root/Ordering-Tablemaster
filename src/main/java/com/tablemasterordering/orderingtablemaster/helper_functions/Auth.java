@@ -2,7 +2,6 @@ package com.tablemasterordering.orderingtablemaster.helper_functions;
 
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
-import com.tablemasterordering.orderingtablemaster.models.GetCustomerById;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -54,12 +53,12 @@ public class Auth {
 
     public static void setCustomerDetails() throws IOException {
         CustomerService customerService = new CustomerService();
-        customerDetails = customerService.getCustomerDetails(new GetCustomerById(customerId));
+        customerDetails = customerService.getCustomerDetails(customerId);
     }
 
     public static void setCustomerDetails(long cId) throws IOException {
         CustomerService customerService = new CustomerService();
-        customerDetails = customerService.getCustomerDetails(new GetCustomerById(cId));
+        customerDetails = customerService.getCustomerDetails(cId);
     }
 
     public static void setDiscount() throws IOException {

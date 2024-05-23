@@ -88,7 +88,13 @@ public class SignUpController implements Initializable {
             CustomerService customerService = new CustomerService();
             boolean signedUp = customerService.customerSignUp(customer);
 
+
+            if (!signedUp) {
+                return;
+            }
+
             LoginResponseModel c = customerService.customerLogin(new LoginModel(customer.getEmail(), customer.getPassword()));
+
             Auth.setCustomerDetails(c.getId());
 
             if (signedUp) {

@@ -10,6 +10,9 @@
     -fx-background-color: #1F1D2B;
     -fx-padding: 20px;
     -fx-background-radius: 15px;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0.5px;
+    -fx-border-radius: 15px;
 }
 
 .text-main {

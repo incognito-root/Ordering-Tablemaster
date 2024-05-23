@@ -6,17 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="210.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.MenuItemController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="210.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.MenuItemController">
     <styleClass>
         <String fx:value="card-main" />
         <String fx:value="transparent-background" />
     </styleClass>
     <children>
-        <ImageView fx:id="menuItemImage" fitHeight="120.0" fitWidth="210.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/burger-demo.png" />
-         </image></ImageView>
-        <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Special Burger" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="120.0">
+        <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Special Burger" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <styleClass>
                 <String fx:value="text-main" />
                 <String fx:value="text-body" />

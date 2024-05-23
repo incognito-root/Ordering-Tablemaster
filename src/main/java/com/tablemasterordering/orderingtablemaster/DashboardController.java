@@ -3,7 +3,6 @@ package com.tablemasterordering.orderingtablemaster;
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.models.DashboardModel;
-import com.tablemasterordering.orderingtablemaster.models.GetCustomerById;
 import com.tablemasterordering.orderingtablemaster.models.GetOrdersModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,7 +53,7 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            DashboardModel dashboardModel = new CustomerService().getCustomerDashboardData(new GetCustomerById(Auth.customerDetails.getCustomerId()));
+            DashboardModel dashboardModel = new CustomerService().getCustomerDashboardData(Auth.customerDetails.getCustomerId());
 
             if (dashboardModel.getTotalOrders() > 0) {
                 totalOrdersLabel.setText(dashboardModel.getTotalOrders() + " Orders");

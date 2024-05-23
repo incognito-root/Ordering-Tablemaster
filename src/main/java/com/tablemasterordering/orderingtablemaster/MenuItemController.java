@@ -18,9 +18,6 @@ import java.util.concurrent.TimeUnit;
 
 public class MenuItemController {
     @FXML
-    private ImageView menuItemImage;
-
-    @FXML
     private Text menuItemPrice;
 
     @FXML
@@ -28,18 +25,9 @@ public class MenuItemController {
 
     private CartMenuItemModel selectedCartMenuItem;
 
-    public void setData(String menuItemPrice, String menuItemTitle, String menuItemImage) throws FileNotFoundException {
-        this.setMenuItemImage(menuItemImage);
+    public void setData(String menuItemPrice, String menuItemTitle) throws FileNotFoundException {
         this.menuItemPrice.setText(menuItemPrice);
         this.menuItemTitle.setText(menuItemTitle);
-    }
-
-    public ImageView getMenuItemImage() {
-        return menuItemImage;
-    }
-
-    public void setMenuItemImage(String menuItemImage) throws FileNotFoundException {
-
     }
 
     public Text getMenuItemPrice() {

@@ -1,7 +1,10 @@
 package com.tablemasterordering.orderingtablemaster.api_service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Popup;
+import com.tablemasterordering.orderingtablemaster.helper_functions.PopupTypeEnum;
 import com.tablemasterordering.orderingtablemaster.models.*;
 
 import java.io.IOException;
@@ -14,9 +17,23 @@ public class CustomerService extends MainService {
         ObjectMapper mapper = new ObjectMapper();
         String reqBody = mapper.writeValueAsString(customer);
 
-        int result = postRequest("customer/createCustomerRecord", reqBody).statusCode();
+        TypeReference<ApiResponse<CustomerModel>> typeRef = new TypeReference<>() {
+        };
 
-        return result == 201; // CREATED
+        HttpResponse<String> result = postRequest("customer/createCustomerRecord", reqBody);
+
+        ApiResponse<CustomerModel> apiResponse = mapper.readValue(result.body(), typeRef);
+
+        if (apiResponse.isSuccess()) {
+            Popup.showPopup(PopupTypeEnum.INFO, apiResponse.getMessage(), "Sign Up Successful");
+            return true;
+        } else if (result.statusCode() == 409) {
+            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Sign Up Failed");
+            return false;
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Sign Up Failed");
+            return false;
+        }
     }
 
     public LoginResponseModel customerLogin(LoginModel customer) throws IOException {
@@ -25,82 +42,101 @@ public class CustomerService extends MainService {
         String reqBody = mapper.writeValueAsString(customer);
 
         HttpResponse<String> response = postRequest("customer/loginCustomer", reqBody);
-        LoginResponseModel customerDetails = mapper.readValue(response.body(), LoginResponseModel.class);
 
-        if (response.statusCode() == 403) {
-            System.out.println("User Not Found");
-        } else if (response.statusCode() == 401) {
-            System.out.println("Wrong Credentials");
-        } else if (response.statusCode() == 200) {
-            return customerDetails;
+        TypeReference<ApiResponse<Long>> typeRef = new TypeReference<>() {
+        };
+
+        ApiResponse<Long> customerDetails = mapper.readValue(response.body(), typeRef);
+
+        if (customerDetails.isSuccess()) {
+            LoginResponseModel loginResponseModel = new LoginResponseModel();
+            loginResponseModel.setId(customerDetails.getData());
+            loginResponseModel.setMessage("Login Successful");
+            return loginResponseModel;
+        } else if (customerDetails.getMessage().equals("Email not found")) {
+            Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
+            return null;
+        } else if (customerDetails.getMessage().equals("Incorrect password")) {
+            Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
+            return null;
+        } else if (customerDetails.getError() != null) {
+            Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
+            return null;
         }
 
-        return customerDetails;
+        return new LoginResponseModel();
     }
 
-    public CustomerModel getCustomerDetails(GetCustomerById customer) throws IOException {
+    public CustomerModel getCustomerDetails(long customer) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         String reqBody = mapper.writeValueAsString(customer);
 
-        HttpResponse<String> response = postRequest("customer/getCustomerById", reqBody);
-        CustomerModel customerDetails = mapper.readValue(response.body(), CustomerModel.class);
+        TypeReference<ApiResponse<CustomerModel>> typeRef = new TypeReference<>() {
+        };
 
-        if (response.statusCode() == 403) {
-            System.out.println("User Not Found");
-        } else if (response.statusCode() == 401) {
-            System.out.println("Wrong Credentials");
-        } else if (response.statusCode() == 200) {
-            return customerDetails;
+        HttpResponse<String> response = postRequest("customer/getCustomerById", reqBody);
+
+        ApiResponse<CustomerModel> customerDetails = mapper.readValue(response.body(), typeRef);
+
+        if (customerDetails.isSuccess()) {
+            return customerDetails.getData();
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
         }
 
-        return customerDetails;
+        return null;
     }
 
     public boolean saveCustomerAddress(SaveAddressRequest request) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         String reqBody = mapper.writeValueAsString(request);
 
+        TypeReference<ApiResponse<Boolean>> typeRef = new TypeReference<>() {
+        };
         HttpResponse<String> response = postRequest("customer/saveCustomerAddress", reqBody);
 
-        if (response.statusCode() == 201) {
+        ApiResponse<Boolean> apiResponse = mapper.readValue(response.body(), typeRef);
+
+        if (apiResponse.isSuccess()) {
             return true;
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Save Address Failed");
         }
 
         return false;
     }
 
-    public DashboardModel getCustomerDashboardData(GetCustomerById customer) throws IOException {
+    public DashboardModel getCustomerDashboardData(long customer) throws IOException {
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
         String reqBody = mapper.writeValueAsString(customer);
 
+        TypeReference<ApiResponse<DashboardModel>> typeRef = new TypeReference<>() {
+        };
         HttpResponse<String> response = postRequest("customer/getDashboardData", reqBody);
-        DashboardModel dashboardData = mapper.readValue(response.body(), DashboardModel.class);
+        ApiResponse<DashboardModel> dashboardData = mapper.readValue(response.body(), typeRef);
 
-        if (response.statusCode() == 403) {
-            System.out.println("User Not Found");
-        } else if (response.statusCode() == 401) {
-            System.out.println("Wrong Credentials");
-        } else if (response.statusCode() == 200) {
-            return dashboardData;
+        if (dashboardData.isSuccess()) {
+            return dashboardData.getData();
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, dashboardData.getMessage(), "Get Dashboard Data Failed");
+            return null;
         }
-
-        return dashboardData;
     }
 
     public double getDiscount() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
+        TypeReference<ApiResponse<DiscountModel>> typeRef = new TypeReference<>() {
+        };
         HttpResponse<String> response = getRequest("discount/getActiveDiscount");
+        ApiResponse<DiscountModel> discountModel = mapper.readValue(response.body(), typeRef);
 
-        DiscountModel discountModel = mapper.readValue(response.body(), DiscountModel.class);
-
-        if (response.statusCode() == 403) {
-            System.out.println("Bad Request");
-        } else if (response.statusCode() == 200) {
-            return discountModel.getDiscountAmount();
+        if (discountModel.isSuccess()) {
+            return discountModel.getData().getDiscountAmount();
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, discountModel.getMessage(), "Get Discount Failed");
+            return 0;
         }
-
-        return 0;
     }
 }

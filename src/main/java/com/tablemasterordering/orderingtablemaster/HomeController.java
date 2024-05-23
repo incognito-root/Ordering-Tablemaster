@@ -54,7 +54,7 @@ public class HomeController implements Initializable {
             AnchorPane anchorPane = loader.load();
             MenuItemController paneController = loader.getController();
 
-            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemName(), details.getMenuItemImage());
+            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemName());
 
             CartMenuItemModel cartMenuItemModel = new CartMenuItemModel(details);
             paneController.setSelectedCartMenuItem(cartMenuItemModel);
@@ -69,7 +69,7 @@ public class HomeController implements Initializable {
             AnchorPane anchorPane = loader.load();
             MenuItemController paneController = loader.getController();
 
-            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemName(), details.getMenuItemImage());
+            paneController.setData(String.valueOf(details.getMenuItemPrice()), details.getMenuItemName());
 
             CartMenuItemModel cartMenuItemModel = new CartMenuItemModel(details);
             paneController.setSelectedCartMenuItem(cartMenuItemModel);

@@ -25,6 +25,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -125,7 +126,6 @@ public class CartController implements Initializable {
             if (orderCreated) {
                 closeCart();
                 emptyCart();
-
             }
 
         } catch (IOException e) {
@@ -174,14 +174,17 @@ public class CartController implements Initializable {
         cartDiscountValue = (Auth.discount / 100) * totalBill;
         finalBill = (totalBill + billTax) - cartDiscountValue;
 
-        cartTax.setText(String.valueOf(billTax));
-        cartTotal.setText(String.valueOf(totalBill));
-        cartSubTotal.setText(String.valueOf(finalBill));
-        cartDiscount.setText(String.valueOf(cartDiscountValue));
+        DecimalFormat df = new DecimalFormat("#.00");
+
+        cartTax.setText(df.format(billTax));
+        cartTotal.setText(df.format(totalBill));
+        cartSubTotal.setText(df.format(finalBill));
+        cartDiscount.setText(df.format(cartDiscountValue));
     }
 
     public void addMenuItemToCart(CartMenuItemModel cartMenuItemToAdd) {
         if (!increaseQuantity(cartMenuItemToAdd)) {
+            cartMenuItemToAdd.setQuantity(1);
             cartItemsList.add(cartMenuItemToAdd);
         }
     }
@@ -199,34 +202,29 @@ public class CartController implements Initializable {
     }
 
     public void quantityChange(String cartMenuItemToAdd, String changeType) {
+        CartMenuItemModel itemToUpdate = null;
+
         for (CartMenuItemModel m : cartItemsList) {
             if (m.getMenuItemName().equals(cartMenuItemToAdd)) {
-                boolean quantityChanged = false;
+                itemToUpdate = m;
+                break;
+            }
+        }
 
-                if (changeType.equals("increase")) {
-                    m.increaseQuantity();
-                    quantityChanged = true;
-                } else if (changeType.equals("reduce")) {
-                    if (!m.decreaseQuantity()) {
-                        removeMenuItemFromCart(cartMenuItemToAdd);
-                    } else {
-                        quantityChanged = true;
-                    }
+        if (itemToUpdate != null) {
+            if (changeType.equals("increase")) {
+                itemToUpdate.increaseQuantity();
+            } else if (changeType.equals("reduce")) {
+                if (!itemToUpdate.decreaseQuantity()) {
+                    cartItemsList.remove(itemToUpdate);
                 }
+            }
 
-                if (quantityChanged) {
-                    int index = cartItemsList.indexOf(m);
-                    if (index >= 0) {
-                        cartItemsList.set(index, m);
-                    }
+            if (!cartItemsList.isEmpty() && itemToUpdate.getQuantity() > 0) {
+                int index = cartItemsList.indexOf(itemToUpdate);
+                if (index >= 0) {
+                    cartItemsList.set(index, itemToUpdate);
                 }
-
-                if (cartItemsList.isEmpty()) {
-                    return;
-                }
-
-//                cartItemsList.set(cartItemsList.indexOf(m), m);
-                return;
             }
         }
     }
