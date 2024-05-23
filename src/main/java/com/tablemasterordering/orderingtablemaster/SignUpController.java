@@ -3,6 +3,8 @@ package com.tablemasterordering.orderingtablemaster;
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.helper_functions.InputValidations;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Popup;
+import com.tablemasterordering.orderingtablemaster.helper_functions.PopupTypeEnum;
 import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
 import com.tablemasterordering.orderingtablemaster.models.LoginModel;
 import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
@@ -83,6 +85,11 @@ public class SignUpController implements Initializable {
     private String gender;
 
     public void sendSignUpRequest() {
+        if (!checkEmptyFields()) {
+            Popup.showPopup(PopupTypeEnum.ERROR, "Please Put All Fields In The Form", "Empty Fields");
+            return;
+        }
+
         CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", gender, Integer.parseInt(ageField.getText()));
         try {
             CustomerService customerService = new CustomerService();
@@ -130,9 +137,11 @@ public class SignUpController implements Initializable {
 
                 if (!InputValidations.validateEmail(emailField.getText())) {
                     InputValidations.setErrors(emailLabel);
+                    disableButton();
                     return;
                 }
 
+                enableButton();
                 InputValidations.clearErrors(emailLabel, emailLabelBackup);
             }
 
@@ -225,7 +234,18 @@ public class SignUpController implements Initializable {
     }
 
     private void enableButton() {
-        signUpButton.setDisable(false);
+        if (!checkEmptyFields() &&
+                InputValidations.validateEmail(emailField.getText()) &&
+                InputValidations.isDigits(contactNumberField.getText()) && InputValidations.validateLength(contactNumberField.getText(), 11, 11) &&
+                InputValidations.isDigits(ageField.getText()) && InputValidations.validateLength(ageField.getText(), 2, 3) &&
+                InputValidations.validateLength(passwordField.getText(), 8, 50) &&
+                InputValidations.validatePasswordMatch(passwordField.getText(), confirmPasswordField.getText()) &&
+                InputValidations.validateAlpha(firstNameField.getText()) && InputValidations.validateLength(firstNameField.getText(), 3, 30) &&
+                InputValidations.validateAlpha(lastNameField.getText()) && InputValidations.validateLength(lastNameField.getText(), 3, 30)) {
+            signUpButton.setDisable(false);
+        } else {
+            signUpButton.setDisable(true);
+        }
     }
 
     public void selectGender(ActionEvent actionEvent) {
@@ -239,6 +259,16 @@ public class SignUpController implements Initializable {
         }
     }
 
+    public boolean checkEmptyFields() {
+        return this.emailField.getText().isEmpty() ||
+                this.passwordField.getText().isEmpty() ||
+                this.ageField.getText().isEmpty() ||
+                this.firstNameField.getText().isEmpty() ||
+                this.lastNameField.getText().isEmpty() ||
+                this.contactNumberField.getText().isEmpty() ||
+                this.confirmPasswordField.getText().isEmpty();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         firstNameLabelBackup = "First Name";
@@ -248,5 +278,7 @@ public class SignUpController implements Initializable {
         ageLabelBackup = "Age";
         passwordLabelBackup = "Password";
         confirmPasswordLabelBackup = "Confirm Password";
+        gender = "male";
+        this.disableButton();
     }
 }

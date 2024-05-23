@@ -80,7 +80,7 @@
                   <String fx:value="login-fields" />
                   <String fx:value="text-body" />
                </styleClass></TextField>
-            <RadioButton fx:id="radioButtonMale" layoutX="520.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectGender" text="Male" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="360.0">
+            <RadioButton fx:id="radioButtonMale" layoutX="520.0" layoutY="417.0" mnemonicParsing="false" onAction="#selectGender" selected="true" text="Male" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="360.0">
                <styleClass>
                   <String fx:value="text-main" />
                   <String fx:value="text-body" />
