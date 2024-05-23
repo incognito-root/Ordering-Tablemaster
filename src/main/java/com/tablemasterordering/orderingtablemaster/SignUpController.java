@@ -85,11 +85,6 @@ public class SignUpController implements Initializable {
     private String gender;
 
     public void sendSignUpRequest() {
-        if (!checkEmptyFields()) {
-            Popup.showPopup(PopupTypeEnum.ERROR, "Please Put All Fields In The Form", "Empty Fields");
-            return;
-        }
-
         CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", gender, Integer.parseInt(ageField.getText()));
         try {
             CustomerService customerService = new CustomerService();
@@ -102,6 +97,7 @@ public class SignUpController implements Initializable {
 
             LoginResponseModel c = customerService.customerLogin(new LoginModel(customer.getEmail(), customer.getPassword()));
 
+            System.out.println(c.getId());
             Auth.setCustomerDetails(c.getId());
 
             if (signedUp) {

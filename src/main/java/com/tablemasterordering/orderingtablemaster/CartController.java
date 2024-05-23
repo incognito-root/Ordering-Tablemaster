@@ -51,9 +51,6 @@ public class CartController implements Initializable {
     @FXML
     private TextField orderNotes;
 
-    @FXML
-    private Label cartAddress;
-
     private static ObservableList<CartMenuItemModel> cartItemsList = FXCollections.observableArrayList();
 
     private static double totalBill = 0;
@@ -93,12 +90,6 @@ public class CartController implements Initializable {
 
         if (cartItemsList.isEmpty()) {
             Popup.showPopup(PopupTypeEnum.ERROR, emptyCartMessage, emptyCartTitle);
-            closeCart();
-            return;
-        }
-
-        if (cartAddress.getText().equals("Save In Settings")) {
-            Popup.showPopup(PopupTypeEnum.ERROR, noAddressMessage, noAddressTitle);
             closeCart();
             return;
         }
@@ -146,9 +137,6 @@ public class CartController implements Initializable {
 
         updateCartView();
 
-        if (!Auth.customerDetails.getAddress().isEmpty()) {
-            cartAddress.setText(Auth.customerDetails.getAddress());
-        }
     }
 
     private void updateCartView() {

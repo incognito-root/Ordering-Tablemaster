@@ -10,11 +10,11 @@
    <children>
       <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <styleClass>
-            <String fx:value="h3" />
+            <String fx:value="text-body-medium" />
             <String fx:value="text-main" />
          </styleClass>
       </Text>
-      <Text fx:id="menuItemPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs.  250" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="55.0">
+      <Text fx:id="menuItemPrice" layoutX="20.0" layoutY="86.46875" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs.  250" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="71.0">
          <styleClass>
             <String fx:value="text-body" />
             <String fx:value="text-secondary" />
