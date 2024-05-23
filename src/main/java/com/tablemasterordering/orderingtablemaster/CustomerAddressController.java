@@ -6,12 +6,15 @@ import com.tablemasterordering.orderingtablemaster.models.AddressModel;
 import com.tablemasterordering.orderingtablemaster.models.SaveAddressRequest;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class CustomerAddressController {
+public class CustomerAddressController implements Initializable {
 
     @FXML
     private Button saveAddressButton;
@@ -24,6 +27,11 @@ public class CustomerAddressController {
 
     @FXML
     private TextField streetAddress;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.skipAddressButton.setVisible(false);
+    }
 
     public void handleAddress(Event e) throws IOException {
         SceneSwitcher sceneSwitcher = new SceneSwitcher("test");
