@@ -10,9 +10,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="670.0" maxWidth="1100.0" minHeight="670.0" minWidth="1100.0" prefHeight="670.0" prefWidth="1100.0" style="-fx-background-color: #252836;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.SignUpController">
+<AnchorPane maxHeight="670.0" maxWidth="1100.0" minHeight="670.0" minWidth="1200.0" prefHeight="670.0" prefWidth="1200.0" style="-fx-background-color: #252836;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.SignUpController">
    <children>
-      <ImageView fitHeight="669.0" fitWidth="480.0" layoutX="-56.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="669.0" fitWidth="480.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/signup-image.jpg" />
          </image>

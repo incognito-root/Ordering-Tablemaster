@@ -109,7 +109,7 @@ public class LoginController {
             passwordShownField.setVisible(false);
             hidePassword.setVisible(false);
             showPassword.setVisible(true);
-            passwordField.setText(passwordField.getText());
+            passwordField.setText(passwordShownField.getText());
         }
     }
 }

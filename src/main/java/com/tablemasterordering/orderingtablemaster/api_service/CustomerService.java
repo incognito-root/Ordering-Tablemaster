@@ -3,6 +3,7 @@ package com.tablemasterordering.orderingtablemaster.api_service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Popup;
 import com.tablemasterordering.orderingtablemaster.helper_functions.PopupTypeEnum;
 import com.tablemasterordering.orderingtablemaster.models.*;
@@ -98,6 +99,7 @@ public class CustomerService extends MainService {
         ApiResponse<Boolean> apiResponse = mapper.readValue(response.body(), typeRef);
 
         if (apiResponse.isSuccess()) {
+            Auth.customerDetails.setAddress(request.getAddress());
             return true;
         } else {
             Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Save Address Failed");
