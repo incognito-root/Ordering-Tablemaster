@@ -8,9 +8,9 @@ public class DashboardModel {
     private DiscountModel ongoingDiscount;
     private String address;
     private MenuItemModel mostOrderedMenuItem;
-    private ArrayList<GetOrdersModel> orders;
+    private ArrayList<OrderModel> orders;
 
-    public DashboardModel(Integer totalOrders, DiscountModel ongoingDiscount, String address, MenuItemModel mostOrderedMenuItem, ArrayList<GetOrdersModel> orders) {
+    public DashboardModel(Integer totalOrders, DiscountModel ongoingDiscount, String address, MenuItemModel mostOrderedMenuItem, ArrayList<OrderModel> orders) {
         this.totalOrders = totalOrders;
         this.ongoingDiscount = ongoingDiscount;
         this.address = address;
@@ -53,11 +53,11 @@ public class DashboardModel {
         this.mostOrderedMenuItem = mostOrderedMenuItem;
     }
 
-    public ArrayList<GetOrdersModel> getOrders() {
+    public ArrayList<OrderModel> getOrders() {
         return orders;
     }
 
-    public void setOrders(ArrayList<GetOrdersModel> orders) {
+    public void setOrders(ArrayList<OrderModel> orders) {
         this.orders = orders;
     }
 

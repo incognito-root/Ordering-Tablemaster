@@ -3,7 +3,7 @@ package com.tablemasterordering.orderingtablemaster;
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.models.DashboardModel;
-import com.tablemasterordering.orderingtablemaster.models.GetOrdersModel;
+import com.tablemasterordering.orderingtablemaster.models.OrderModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,7 +39,7 @@ public class DashboardController implements Initializable {
     private Text totalOrdersLabel;
 
     @FXML
-    private TableView<GetOrdersModel> allOrders;
+    private TableView<OrderModel> allOrders;
 
     @FXML
     private TableColumn<?, ?> tableOrderDate;
@@ -79,7 +79,7 @@ public class DashboardController implements Initializable {
             tableOrderNotes.setCellValueFactory(new PropertyValueFactory<>("orderDescription"));
             tableOrderPayment.setCellValueFactory(new PropertyValueFactory<>("orderAmount"));
 
-            ObservableList<GetOrdersModel> ordersModels = FXCollections.observableArrayList(dashboardModel.getOrders());
+            ObservableList<OrderModel> ordersModels = FXCollections.observableArrayList(dashboardModel.getOrders());
             allOrders.setItems(ordersModels);
 
         } catch (IOException e) {

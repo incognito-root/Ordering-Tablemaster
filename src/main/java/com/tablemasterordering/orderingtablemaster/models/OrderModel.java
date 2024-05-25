@@ -3,7 +3,10 @@ package com.tablemasterordering.orderingtablemaster.models;
 import java.util.ArrayList;
 
 public class OrderModel {
+    private long orderId;
     private String orderDescription;
+    private String orderStatus;
+    private String orderPlacedDate;
     private double orderAmount;
     private double orderExtraCharges;
     private long fkCustomerId;
