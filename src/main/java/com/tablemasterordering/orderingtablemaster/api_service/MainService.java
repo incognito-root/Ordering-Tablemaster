@@ -13,7 +13,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class MainService {
-    protected final String mainUrl = "http://localhost:8080/";
+    protected final String mainUrl = "http://143.110.182.19:8080/";
 
     protected HttpResponse<String> getRequest(String url) throws IOException {
         if (!isInternetAvailable()) {
