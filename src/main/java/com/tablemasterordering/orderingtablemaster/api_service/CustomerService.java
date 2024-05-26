@@ -15,7 +15,7 @@ public class CustomerService extends MainService {
 
     public boolean customerSignUp(CustomerModel customer) throws IOException {
 
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
         String reqBody = mapper.writeValueAsString(customer);
 
         TypeReference<ApiResponse<CustomerModel>> typeRef = new TypeReference<>() {
@@ -28,9 +28,6 @@ public class CustomerService extends MainService {
         if (apiResponse.isSuccess()) {
             Popup.showPopup(PopupTypeEnum.INFO, apiResponse.getMessage(), "Sign Up Successful");
             return true;
-        } else if (result.statusCode() == 409) {
-            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Sign Up Failed");
-            return false;
         } else {
             Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Sign Up Failed");
             return false;
@@ -54,18 +51,10 @@ public class CustomerService extends MainService {
             loginResponseModel.setId(customerDetails.getData());
             loginResponseModel.setMessage("Login Successful");
             return loginResponseModel;
-        } else if (customerDetails.getMessage().equals("Email not found")) {
-            Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
-            return null;
-        } else if (customerDetails.getMessage().equals("Incorrect password")) {
-            Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
-            return null;
-        } else if (customerDetails.getError() != null) {
+        } else {
             Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
             return null;
         }
-
-        return new LoginResponseModel();
     }
 
     public CustomerModel getCustomerDetails(long customer) throws IOException {
@@ -90,6 +79,7 @@ public class CustomerService extends MainService {
 
     public boolean saveCustomerAddress(SaveAddressRequest request) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
+
         String reqBody = mapper.writeValueAsString(request);
 
         TypeReference<ApiResponse<Boolean>> typeRef = new TypeReference<>() {
