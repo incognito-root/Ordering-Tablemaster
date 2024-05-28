@@ -12,10 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,10 +23,10 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
     @FXML
-    private TextField ageField;
+    private TextField dateOfBirthField;
 
     @FXML
-    private TextField confirmPasswordField;
+    private PasswordField confirmPasswordField;
 
     @FXML
     private TextField contactNumberField;
@@ -43,7 +41,7 @@ public class SignUpController implements Initializable {
     private TextField lastNameField;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
 
     @FXML
     private Label firstNameLabel;
@@ -62,8 +60,8 @@ public class SignUpController implements Initializable {
     private String contactNumberLabelBackup;
 
     @FXML
-    private Label ageLabel;
-    private String ageLabelBackup;
+    private Label dateOfBirthLabel;
+    private String dateOfBirthBackup;
 
     @FXML
     private Label passwordLabel;
@@ -84,12 +82,15 @@ public class SignUpController implements Initializable {
 
     private String gender;
 
+    @FXML
+    private DatePicker datePicker;
+
     public void sendSignUpRequest() {
-        CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", gender, Integer.parseInt(ageField.getText()));
+        CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", gender, datePicker.getValue().toString());
+
         try {
             CustomerService customerService = new CustomerService();
             boolean signedUp = customerService.customerSignUp(customer);
-
 
             if (!signedUp) {
                 return;
@@ -101,7 +102,6 @@ public class SignUpController implements Initializable {
             Auth.setCustomerDetails(c.getId());
 
             if (signedUp) {
-//                redirectToLogin();
                 redirectToAddressSelection();
             }
 
@@ -121,7 +121,8 @@ public class SignUpController implements Initializable {
     }
 
     public void validateField(Event e) {
-        String source = ((TextField) e.getSource()).getId();
+
+        String source = ((Node) e.getSource()).getId();
 
         switch (source) {
             case "firstNameField" -> handleFieldErrors(firstNameLabel, firstNameLabelBackup, firstNameField);
@@ -160,23 +161,18 @@ public class SignUpController implements Initializable {
                 InputValidations.clearErrors(contactNumberLabel, contactNumberLabelBackup);
             }
 
-            case "ageField" -> {
-                InputValidations.clearErrors(ageLabel, ageLabelBackup);
+            case "datePicker" -> {
+                InputValidations.clearErrors(dateOfBirthLabel, dateOfBirthBackup);
 
-                if (!InputValidations.isDigits(ageField.getText())) {
-                    InputValidations.setErrors(ageLabel);
+                if (!InputValidations.validateAge(datePicker.getValue())) {
+                    InputValidations.setErrors(dateOfBirthLabel);
                     disableButton();
                     return;
                 }
 
-                if (!InputValidations.validateLength(ageField.getText(), 2, 3)) {
-                    InputValidations.setErrors(ageLabel);
-                    disableButton();
-                    return;
-                }
-
+                dateOfBirthField.setText(datePicker.getValue().toString());
                 enableButton();
-                InputValidations.clearErrors(ageLabel, ageLabelBackup);
+                InputValidations.clearErrors(dateOfBirthLabel, dateOfBirthBackup);
             }
 
             case "passwordField" -> {
@@ -233,7 +229,7 @@ public class SignUpController implements Initializable {
         if (!checkEmptyFields() &&
                 InputValidations.validateEmail(emailField.getText()) &&
                 InputValidations.isDigits(contactNumberField.getText()) && InputValidations.validateLength(contactNumberField.getText(), 11, 11) &&
-                InputValidations.isDigits(ageField.getText()) && InputValidations.validateLength(ageField.getText(), 2, 3) &&
+                InputValidations.validateAge(datePicker.getValue()) &&
                 InputValidations.validateLength(passwordField.getText(), 8, 50) &&
                 InputValidations.validatePasswordMatch(passwordField.getText(), confirmPasswordField.getText()) &&
                 InputValidations.validateAlpha(firstNameField.getText()) && InputValidations.validateLength(firstNameField.getText(), 3, 30) &&
@@ -258,7 +254,6 @@ public class SignUpController implements Initializable {
     public boolean checkEmptyFields() {
         return this.emailField.getText().isEmpty() ||
                 this.passwordField.getText().isEmpty() ||
-                this.ageField.getText().isEmpty() ||
                 this.firstNameField.getText().isEmpty() ||
                 this.lastNameField.getText().isEmpty() ||
                 this.contactNumberField.getText().isEmpty() ||
@@ -271,7 +266,7 @@ public class SignUpController implements Initializable {
         lastNameLabelBackup = "Last Name";
         emailLabelBackup = "Email";
         contactNumberLabelBackup = "Contact Number";
-        ageLabelBackup = "Age";
+        dateOfBirthBackup = "Date Of Birth";
         passwordLabelBackup = "Password";
         confirmPasswordLabelBackup = "Confirm Password";
         gender = "male";

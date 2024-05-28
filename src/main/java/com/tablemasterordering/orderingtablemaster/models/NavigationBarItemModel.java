@@ -3,7 +3,7 @@ package com.tablemasterordering.orderingtablemaster.models;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
-public class NavigationMenuItemModel {
+public class NavigationBarItemModel {
     ImageView inactiveImageView;
     ImageView activeImageView;
     Rectangle backgroundRectangle;

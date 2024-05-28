@@ -96,7 +96,7 @@ public class CartController implements Initializable {
 
         OrderModel orderModel = new OrderModel();
         orderModel.setOrderDescription(orderNotes.getText() == null ? " " : orderNotes.getText());
-        System.out.println(orderNotes.getText());
+
         orderModel.setOrderAmount(finalBill);
         orderModel.setFkCustomerId(Auth.customerId != 0 ? Auth.customerId : Auth.customerDetails.getCustomerId());
         orderModel.setOrderExtraCharges(0);

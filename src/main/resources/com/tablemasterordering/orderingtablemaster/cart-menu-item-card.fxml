@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="420.0" styleClass="transparent-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasterordering.orderingtablemaster.CartMenuItemController">
    <children>
-      <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <styleClass>
             <String fx:value="text-body-medium" />
             <String fx:value="text-main" />
