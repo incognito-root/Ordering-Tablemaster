@@ -87,7 +87,6 @@ public class SignUpController implements Initializable {
 
     public void sendSignUpRequest() {
         CustomerModel customer = new CustomerModel(firstNameField.getText(), lastNameField.getText(), contactNumberField.getText(), "", emailField.getText(), passwordField.getText(), "", gender, datePicker.getValue().toString());
-        System.out.println(customer.getDateOfBirth());
 
         try {
             CustomerService customerService = new CustomerService();

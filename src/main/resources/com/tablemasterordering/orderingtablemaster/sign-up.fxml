@@ -77,7 +77,7 @@
                   <String fx:value="text-body-medium" />
                </styleClass>
             </Label>
-            <DatePicker fx:id="datePicker" editable="false" onAction="#validateField" prefHeight="48.0" prefWidth="187.0" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="360.0" />
+            <DatePicker fx:id="datePicker" editable="false" onAction="#validateField" prefHeight="48.0" prefWidth="187.0" styleClass="date-picker" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="360.0" />
             <TextField fx:id="dateOfBirthField" editable="false" layoutX="36.0" layoutY="401.0" onKeyReleased="#validateField" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="360.0">
                <styleClass>
                   <String fx:value="date-picker-field" />

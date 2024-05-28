@@ -20,6 +20,17 @@ public class OrderModel {
         this.orderDetails = orderDetails;
     }
 
+    public OrderModel(long orderId, String orderDescription, String orderStatus, String orderPlacedDate, double orderAmount, double orderExtraCharges, long fkCustomerId, ArrayList<OrderDetailModel> orderDetails) {
+        this.orderId = orderId;
+        this.orderDescription = orderDescription;
+        this.orderStatus = orderStatus;
+        this.orderPlacedDate = orderPlacedDate;
+        this.orderAmount = orderAmount;
+        this.orderExtraCharges = orderExtraCharges;
+        this.fkCustomerId = fkCustomerId;
+        this.orderDetails = orderDetails;
+    }
+
     public OrderModel() {
     }
 
@@ -57,6 +68,30 @@ public class OrderModel {
 
     public ArrayList<OrderDetailModel> getOrderDetails() {
         return orderDetails;
+    }
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getOrderPlacedDate() {
+        return orderPlacedDate;
+    }
+
+    public void setOrderPlacedDate(String orderPlacedDate) {
+        this.orderPlacedDate = orderPlacedDate;
     }
 
     public void setOrderDetails(ArrayList<OrderDetailModel> orderDetails) {
