@@ -2,8 +2,7 @@ package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
-import com.tablemasterordering.orderingtablemaster.models.LoginModel;
-import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
+import com.tablemasterordering.orderingtablemaster.models.LoginRequestModel;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -47,23 +46,23 @@ public class LoginController {
         String email = emailField.getText();
         String pass = passwordField.getText();
 
-        LoginModel customer = new LoginModel(email, pass);
+        LoginRequestModel customer = new LoginRequestModel(email, pass);
 
         this.stage = (Stage) emailField.getScene().getWindow();
 
         CustomerService customerService = new CustomerService();
-        LoginResponseModel loginResponseModel = customerService.customerLogin(customer);
+        Long customerIdFromLogin = customerService.customerLogin(customer);
 
-        if (loginResponseModel == null) {
+        if (customerIdFromLogin == null) {
             return;
         }
 
-        if (loginResponseModel.getId() != 0) {
+        if (customerIdFromLogin != 0) {
 
-            Auth.setCustomerDetails(loginResponseModel.getId());
+            Auth.setCustomerDetails(customerIdFromLogin);
 
             if (stayLoggedIn.isSelected()) {
-                saveCookie(loginResponseModel.getId());
+                saveCookie(customerIdFromLogin);
             }
 
             SceneSwitcher sceneSwitcher = new SceneSwitcher("test");

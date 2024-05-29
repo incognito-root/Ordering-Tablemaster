@@ -34,7 +34,7 @@ public class CustomerService extends MainService {
         }
     }
 
-    public LoginResponseModel customerLogin(LoginModel customer) throws IOException {
+    public Long customerLogin(LoginRequestModel customer) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
         String reqBody = mapper.writeValueAsString(customer);
@@ -47,10 +47,8 @@ public class CustomerService extends MainService {
         ApiResponse<Long> customerDetails = mapper.readValue(response.body(), typeRef);
 
         if (customerDetails.isSuccess()) {
-            LoginResponseModel loginResponseModel = new LoginResponseModel();
-            loginResponseModel.setId(customerDetails.getData());
-            loginResponseModel.setMessage("Login Successful");
-            return loginResponseModel;
+
+            return customerDetails.getData();
         } else {
             Popup.showPopup(PopupTypeEnum.ERROR, customerDetails.getMessage(), "Login Failed");
             return null;

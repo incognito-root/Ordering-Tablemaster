@@ -3,11 +3,8 @@ package com.tablemasterordering.orderingtablemaster;
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
 import com.tablemasterordering.orderingtablemaster.helper_functions.InputValidations;
-import com.tablemasterordering.orderingtablemaster.helper_functions.Popup;
-import com.tablemasterordering.orderingtablemaster.helper_functions.PopupTypeEnum;
 import com.tablemasterordering.orderingtablemaster.models.CustomerModel;
-import com.tablemasterordering.orderingtablemaster.models.LoginModel;
-import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
+import com.tablemasterordering.orderingtablemaster.models.LoginRequestModel;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -17,8 +14,6 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.net.http.HttpResponse;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
@@ -96,9 +91,9 @@ public class SignUpController implements Initializable {
                 return;
             }
 
-            LoginResponseModel c = customerService.customerLogin(new LoginModel(customer.getEmail(), customer.getPassword()));
+            Long customerDetails = customerService.customerLogin(new LoginRequestModel(customer.getEmail(), customer.getPassword()));
 
-            Auth.setCustomerDetails(c.getId());
+            Auth.setCustomerDetails(customerDetails);
 
             if (signedUp) {
                 redirectToAddressSelection();
