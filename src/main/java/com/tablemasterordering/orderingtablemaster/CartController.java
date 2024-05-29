@@ -229,19 +229,6 @@ public class CartController implements Initializable {
         }
     }
 
-    public void removeMenuItemFromCart(String cartMenuItemToRemove) {
-        CartMenuItemModel itemToRemove = new CartMenuItemModel();
-
-        for (CartMenuItemModel m : cartItemsList) {
-            if (m.getMenuItemName().equals(cartMenuItemToRemove)) {
-                itemToRemove = m;
-            }
-        }
-
-        cartItemsList.remove(itemToRemove);
-    }
-
-
     public static ObservableList<CartMenuItemModel> getCartItemsList() {
         return cartItemsList;
     }
