@@ -137,4 +137,8 @@ public class HomeController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    public static ArrayList<MenuItemModel> getAllMenuItems() {
+        return allMenuItems;
+    }
 }

@@ -129,4 +129,22 @@ public class CustomerService extends MainService {
             return 0;
         }
     }
+
+    public OrderModel getMostFrequentOrder() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        TypeReference<ApiResponse<OrderModel>> typeRef = new TypeReference<>() {
+        };
+
+        HttpResponse<String> response = getRequest("customer/getCustomerMostFrequentOrder/" + Auth.customerId);
+
+        ApiResponse<OrderModel> orderModel = mapper.readValue(response.body(), typeRef);
+
+        if (orderModel.isSuccess()) {
+            return orderModel.getData();
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, orderModel.getMessage(), "Get Order Failed");
+            return null;
+        }
+    }
 }

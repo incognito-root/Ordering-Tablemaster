@@ -160,7 +160,7 @@ public class CartController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("cart-menu-item-card.fxml"));
                 AnchorPane anchorPane = loader.load();
                 CartMenuItemController paneController = loader.getController();
-                paneController.setData(item.getMenuItemName(), String.valueOf(item.getMenuItemPrice()), String.valueOf(item.getQuantity()), String.valueOf(item.getMenuItemPrice()));
+                paneController.setData(item.getMenuItemName(), String.valueOf(item.getQuantity()), String.valueOf(item.getMenuItemPrice() * item.getQuantity()), String.valueOf(item.getMenuItemPrice()));
                 cartItems.getChildren().add(anchorPane);
 
                 totalBill += item.getMenuItemPrice() * item.getQuantity();
