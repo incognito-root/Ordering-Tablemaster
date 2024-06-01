@@ -144,7 +144,6 @@ public class DashboardController implements Initializable {
     public void searchOrders() {
 
         if (query.isEmpty()) {
-
             allOrdersTable.setItems(ordersBackup);
             return;
         }
@@ -152,8 +151,8 @@ public class DashboardController implements Initializable {
         ArrayList<OrderModel> filteredOrders = new ArrayList<>();
 
         if (orderDateSearch) {
-            for (OrderModel order : ordersModels) {
-                if (order.getOrderPlacedDate().toLowerCase().equals(query)
+            for (OrderModel order : ordersBackup) {
+                if (order.getOrderPlacedDate().equals(query)
                 ) {
                     filteredOrders.add(order);
                 }
@@ -201,6 +200,7 @@ public class DashboardController implements Initializable {
         orderDateField.setText(dateToSearchFor);
 
         query = dateToSearchFor;
+
         orderDateSearch = true;
 
         searchOrders();

@@ -20,13 +20,11 @@ public class MenuService extends MainService {
     private ArrayList<MenuItemModel> allMenuItems = new ArrayList<>();
 
     private void readAllMenuItems() throws IOException {
-//        this.allMenuItems = mapper.readValue(result, new TypeReference<ArrayList<MenuItemModel>>() {
-//        });
-
         ObjectMapper mapper = new ObjectMapper()
                 .registerModule(new JavaTimeModule());
 
-        TypeReference<ApiResponse<List<MenuItemModel>>> typeReference = new TypeReference<ApiResponse<List<MenuItemModel>>>() {};
+        TypeReference<ApiResponse<List<MenuItemModel>>> typeReference = new TypeReference<>() {
+        };
         HttpResponse<String> result = getRequest("menu/getAllMenuItems");
         ApiResponse<List<MenuItemModel>> data = mapper.readValue(result.body(), typeReference);
 

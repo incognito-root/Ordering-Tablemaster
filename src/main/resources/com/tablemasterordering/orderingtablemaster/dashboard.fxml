@@ -176,7 +176,7 @@
                                           <Image url="@../images/icons8-down-arrow-100.png" />
                                        </image>
                                     </ImageView>
-                                    <DatePicker fx:id="datePicker" onAction="#getOrderByDate" prefHeight="45.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="205.0" />
+                                    <DatePicker fx:id="datePicker" onAction="#getOrderByDate" prefHeight="45.0" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="205.0" />
                                     <TextField fx:id="orderDateField" editable="false" layoutX="41.0" layoutY="111.5" onKeyReleased="#searchOrders" prefHeight="46.0" promptText="Get orders on a specific date" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="205.0">
                                        <styleClass>
                                           <String fx:value="text-main" />

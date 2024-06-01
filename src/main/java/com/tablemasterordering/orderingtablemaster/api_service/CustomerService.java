@@ -57,12 +57,11 @@ public class CustomerService extends MainService {
 
     public CustomerModel getCustomerDetails(long customer) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        String reqBody = mapper.writeValueAsString(customer);
 
         TypeReference<ApiResponse<CustomerModel>> typeRef = new TypeReference<>() {
         };
 
-        HttpResponse<String> response = postRequest("customer/getCustomerById", reqBody);
+        HttpResponse<String> response = getRequest("customer/getCustomerById/" + customer);
 
         ApiResponse<CustomerModel> customerDetails = mapper.readValue(response.body(), typeRef);
 
@@ -99,11 +98,10 @@ public class CustomerService extends MainService {
     public DashboardModel getCustomerDashboardData(long customer) throws IOException {
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-        String reqBody = mapper.writeValueAsString(customer);
-
         TypeReference<ApiResponse<DashboardModel>> typeRef = new TypeReference<>() {
         };
-        HttpResponse<String> response = postRequest("customer/getDashboardData", reqBody);
+
+        HttpResponse<String> response = getRequest("customer/getDashboardData/" + customer);
         ApiResponse<DashboardModel> dashboardData = mapper.readValue(response.body(), typeRef);
 
         if (dashboardData.isSuccess()) {
