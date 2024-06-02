@@ -207,9 +207,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+**Syed Ayaan Ali** - syedayaanali789@gmail.com <br>
+Github: <a href="https://github.com/incognito-root">incognito-root</a> <br>
+Linkedin: <a href="https://www.linkedin.com/in/syed-ayaan-ali-82b40b246/">Syed Ayaan Ali</a>
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/incognito-root/Ordering-Tablemaster](https://github.com/incognito-root/Ordering-Tablemaster)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
