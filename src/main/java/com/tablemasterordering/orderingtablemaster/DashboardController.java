@@ -75,22 +75,6 @@ public class DashboardController implements Initializable {
                 totalOrdersLabel.setText(dashboardModel.getTotalOrders() + " Orders");
             }
 
-//            if (dashboardModel.getOngoingDiscount().getDiscountAmount() > 0) {
-//                discountsLabel.setText(dashboardModel.getOngoingDiscount().getDiscountTitle() + "  " + dashboardModel.getOngoingDiscount().getDiscountAmount() + " % Off");
-//            }
-//
-//            if (!dashboardModel.getAddress().isEmpty()) {
-//                addressLabel.setText(dashboardModel.getAddress());
-//            }
-
-//            if (dashboardModel.getMostOrderedMenuItem() != null) {
-//                menuItemTitle.setText(dashboardModel.getMostOrderedMenuItem().getMenuItemName());
-//                menuItemDescription.setText(dashboardModel.getMostOrderedMenuItem().getMenuItemDescription());
-//                menuItemDescription.setVisible(true);
-//                menuItemPrice.setText(String.format("%.2f", dashboardModel.getMostOrderedMenuItem().getMenuItemPrice()));
-//                menuItemPrice.setVisible(true);
-//            }
-
             tableOrderDate.setCellValueFactory(new PropertyValueFactory<>("orderPlacedDate"));
             tableOrderNotes.setCellValueFactory(new PropertyValueFactory<>("orderDescription"));
             tableOrderPayment.setCellValueFactory(new PropertyValueFactory<>("orderAmount"));
