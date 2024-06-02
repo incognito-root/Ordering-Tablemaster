@@ -2,6 +2,9 @@ package com.tablemasterordering.orderingtablemaster.helper_functions;
 
 import javafx.scene.control.Label;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 public class InputValidations {
     public static String errorMessage = "";
 
@@ -101,6 +104,23 @@ public class InputValidations {
 
         if (!password.equals(confirmPassword)) {
             errorMessage = ": passwords do not match";
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean validateAge(LocalDate localDate) {
+        long age = ChronoUnit.YEARS.between(localDate, LocalDate.now());
+
+        if (localDate.isAfter(LocalDate.now())) {
+            errorMessage = ": invalid date of birth";
+            return false;
+        }
+
+
+        if (age < 18) {
+            errorMessage = ": must be over 18";
             return false;
         }
 

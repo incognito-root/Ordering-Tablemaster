@@ -1,15 +1,15 @@
 package com.tablemasterordering.orderingtablemaster.models;
 
-public class LoginModel {
+public class LoginRequestModel {
     private String usernameOrEmail;
     private String password;
 
-    public LoginModel(String usernameOrEmail, String password) {
+    public LoginRequestModel(String usernameOrEmail, String password) {
         this.usernameOrEmail = usernameOrEmail;
         this.password = password;
     }
 
-    public LoginModel() {
+    public LoginRequestModel() {
     }
 
     public String getUsernameOrEmail() {

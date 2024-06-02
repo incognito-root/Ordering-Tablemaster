@@ -236,6 +236,34 @@
     -fx-text-fill: #ffffff;
 }
 
+.date-picker-field {
+    -fx-background-color: #444858;
+    -fx-padding: 15px;
+    -fx-background-radius: 15px 0px 0px 15px;
+    -fx-min-width: 300px;
+    -fx-text-fill: #ffffff;
+}
+
+.date-picker-field-small {
+    -fx-background-color: #444858;
+    -fx-padding: 10px;
+    -fx-background-radius: 15px 0px 0px 15px;
+    -fx-min-width: 270px;
+    -fx-text-fill: #ffffff;
+}
+
+.buttons-main {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-padding: 8px;
+    -fx-min-width: 100px;
+    -fx-font-size: 15px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15;
+    -fx-border-color: #EA6969;
+    -fx-text-fill: #EA6969;
+    -fx-font-weight: 500;
+}
+
 .login-sign-up-buttons-main {
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-padding: 18px;
@@ -255,6 +283,17 @@
     -fx-border-radius: 15;
     -fx-border-color: #444858;
     -fx-text-fill: #444858;
+    -fx-font-weight: 500;
+}
+
+.buttons-filled-secondary {
+    -fx-background-color: #444858;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 8px;
+    -fx-min-width: 100px;
+    -fx-font-size: 15px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15;
     -fx-font-weight: 500;
 }
 

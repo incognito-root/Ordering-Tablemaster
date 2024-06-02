@@ -1,6 +1,6 @@
 package com.tablemasterordering.orderingtablemaster;
 
-import com.tablemasterordering.orderingtablemaster.models.NavigationMenuItemModel;
+import com.tablemasterordering.orderingtablemaster.models.NavigationBarItemModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -64,16 +64,16 @@ public class MainController implements Initializable {
         String[] relatedItems = navItems.get(sourceId);
 
         if (relatedItems != null) {
-            NavigationMenuItemModel navigationMenuItemModel = new NavigationMenuItemModel();
-            navigationMenuItemModel.setInactiveImageView((ImageView) event.getSource());
-            navigationMenuItemModel.setActiveImageView((ImageView) navSettingsInactive.getScene().lookup("#" + relatedItems[0]));
-            navigationMenuItemModel.setBackgroundRectangle((Rectangle) navSettingsInactive.getScene().lookup("#" + relatedItems[1]));
+            NavigationBarItemModel navigationBarItemModel = new NavigationBarItemModel();
+            navigationBarItemModel.setInactiveImageView((ImageView) event.getSource());
+            navigationBarItemModel.setActiveImageView((ImageView) navSettingsInactive.getScene().lookup("#" + relatedItems[0]));
+            navigationBarItemModel.setBackgroundRectangle((Rectangle) navSettingsInactive.getScene().lookup("#" + relatedItems[1]));
 
-            if (navigationMenuItemModel.getInactiveImageView().isVisible()) {
-                navigationMenuItemModel.getActiveImageView().setVisible(true);
-                navigationMenuItemModel.getBackgroundRectangle().setVisible(true);
+            if (navigationBarItemModel.getInactiveImageView().isVisible()) {
+                navigationBarItemModel.getActiveImageView().setVisible(true);
+                navigationBarItemModel.getBackgroundRectangle().setVisible(true);
 
-                sceneSwitcher.switchScene(navigationMenuItemModel, mainBorderPane);
+                sceneSwitcher.switchScene(navigationBarItemModel, mainBorderPane);
             }
         }
     }
@@ -106,13 +106,13 @@ public class MainController implements Initializable {
         sceneSwitcher = new SceneSwitcher();
         initNavigationItems();
 
-        NavigationMenuItemModel navigationMenuItemModel = new NavigationMenuItemModel();
-        navigationMenuItemModel.setInactiveImageView(navHomeInactive);
-        navigationMenuItemModel.setActiveImageView(navHomeActive);
-        navigationMenuItemModel.setBackgroundRectangle(navHomeBackground);
+        NavigationBarItemModel navigationBarItemModel = new NavigationBarItemModel();
+        navigationBarItemModel.setInactiveImageView(navHomeInactive);
+        navigationBarItemModel.setActiveImageView(navHomeActive);
+        navigationBarItemModel.setBackgroundRectangle(navHomeBackground);
 
         try {
-            sceneSwitcher.switchScene(navigationMenuItemModel, mainBorderPane);
+            sceneSwitcher.switchScene(navigationBarItemModel, mainBorderPane);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

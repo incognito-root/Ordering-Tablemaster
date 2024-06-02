@@ -2,11 +2,12 @@ package com.tablemasterordering.orderingtablemaster;
 
 import com.tablemasterordering.orderingtablemaster.api_service.CustomerService;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Auth;
-import com.tablemasterordering.orderingtablemaster.models.LoginModel;
-import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
+import com.tablemasterordering.orderingtablemaster.models.LoginRequestModel;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
@@ -29,29 +30,39 @@ public class LoginController {
     @FXML
     private Label errorLabel;
 
+    @FXML
+    private ImageView hidePassword;
+
+    @FXML
+    private ImageView showPassword;
+
+    @FXML
+    private TextField passwordShownField;
+
+
     private Stage stage;
 
     public void onLogin(ActionEvent event) throws NullPointerException, IOException {
         String email = emailField.getText();
         String pass = passwordField.getText();
 
-        LoginModel customer = new LoginModel(email, pass);
+        LoginRequestModel customer = new LoginRequestModel(email, pass);
 
         this.stage = (Stage) emailField.getScene().getWindow();
 
         CustomerService customerService = new CustomerService();
-        LoginResponseModel loginResponseModel = customerService.customerLogin(customer);
+        Long customerIdFromLogin = customerService.customerLogin(customer);
 
-        if (loginResponseModel == null) {
+        if (customerIdFromLogin == null) {
             return;
         }
 
-        if (loginResponseModel.getId() != 0) {
+        if (customerIdFromLogin != 0) {
 
-            Auth.setCustomerDetails(loginResponseModel.getId());
+            Auth.setCustomerDetails(customerIdFromLogin);
 
             if (stayLoggedIn.isSelected()) {
-                saveCookie(loginResponseModel.getId());
+                saveCookie(customerIdFromLogin);
             }
 
             SceneSwitcher sceneSwitcher = new SceneSwitcher("test");
@@ -82,6 +93,22 @@ public class LoginController {
             if (writer != null) {
                 writer.close();
             }
+        }
+    }
+
+    public void togglePasswordVisibility(Event e) {
+        String source = ((ImageView) e.getSource()).getId();
+
+        if (source.equals("showPassword")) {
+            passwordShownField.setVisible(true);
+            hidePassword.setVisible(true);
+            showPassword.setVisible(false);
+            passwordShownField.setText(passwordField.getText());
+        } if (source.equals("hidePassword")) {
+            passwordShownField.setVisible(false);
+            hidePassword.setVisible(false);
+            showPassword.setVisible(true);
+            passwordField.setText(passwordShownField.getText());
         }
     }
 }

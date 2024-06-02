@@ -1,11 +1,10 @@
 package com.tablemasterordering.orderingtablemaster;
 
-import com.tablemasterordering.orderingtablemaster.models.NavigationMenuItemModel;
+import com.tablemasterordering.orderingtablemaster.models.NavigationBarItemModel;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -32,7 +31,7 @@ public class SceneSwitcher {
 
     }
 
-    public void switchScene(NavigationMenuItemModel navigationItem, BorderPane borderPane) throws IOException {
+    public void switchScene(NavigationBarItemModel navigationItem, BorderPane borderPane) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneMap.get(navigationItem.getInactiveImageView().getId())));
         AnchorPane anchorPane;
         anchorPane = loader.load();

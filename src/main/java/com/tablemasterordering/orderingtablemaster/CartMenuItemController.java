@@ -10,34 +10,31 @@ import javafx.scene.text.Text;
 
 public class CartMenuItemController {
     @FXML
-    private Text menuItemPrice;
-
-    @FXML
     private Label menuItemQuantity;
 
     @FXML
-    private Text menuItemTitle;
+    private Label menuItemTitle;
 
     @FXML
     private Text menuItemTotalPrice;
 
+    @FXML
+    private Text menuItemUnitPrice;
 
-    public void setData(String menuItemTitle, String menuItemPrice, String menuItemQuantity, String menuItemTotalPrice) {
+    @FXML
+    private Label increaseQuantityButton;
+
+    @FXML
+    private Label reduceQuantityButton;
+
+    public void setData(String menuItemTitle, String menuItemQuantity, String menuItemTotalPrice, String menuItemUnitPrice) {
         this.menuItemTitle.setText(menuItemTitle);
-        this.menuItemPrice.setText(menuItemPrice);
+        this.menuItemUnitPrice.setText(menuItemUnitPrice);
         this.menuItemQuantity.setText(menuItemQuantity);
         this.menuItemTotalPrice.setText(menuItemTotalPrice);
     }
 
     public CartMenuItemController() {
-    }
-
-    public Text getMenuItemPrice() {
-        return menuItemPrice;
-    }
-
-    public void setMenuItemPrice(Text menuItemPrice) {
-        this.menuItemPrice = menuItemPrice;
     }
 
     public Label getMenuItemQuantity() {
@@ -48,11 +45,11 @@ public class CartMenuItemController {
         this.menuItemQuantity = menuItemQuantity;
     }
 
-    public Text getMenuItemTitle() {
+    public Label getMenuItemTitle() {
         return menuItemTitle;
     }
 
-    public void setMenuItemTitle(Text menuItemTitle) {
+    public void setMenuItemTitle(Label menuItemTitle) {
         this.menuItemTitle = menuItemTitle;
     }
 
@@ -76,5 +73,10 @@ public class CartMenuItemController {
         }
 
         cartController.quantityChange(menuItemTitle.getText(), type);
+    }
+
+    public void hideQuantityButtons() {
+        reduceQuantityButton.setVisible(false);
+        increaseQuantityButton.setVisible(false);
     }
 }

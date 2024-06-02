@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tablemasterordering.orderingtablemaster.helper_functions.Popup;
 import com.tablemasterordering.orderingtablemaster.helper_functions.PopupTypeEnum;
 import com.tablemasterordering.orderingtablemaster.models.ApiResponse;
-import com.tablemasterordering.orderingtablemaster.models.LoginModel;
-import com.tablemasterordering.orderingtablemaster.models.LoginResponseModel;
 import com.tablemasterordering.orderingtablemaster.models.OrderModel;
 
 import java.io.IOException;

@@ -1,5 +1,7 @@
 package com.tablemasterordering.orderingtablemaster.models;
 
+import java.time.LocalDate;
+
 public class CustomerModel {
     private long customerId;
     private String firstName;
@@ -10,12 +12,12 @@ public class CustomerModel {
     private String password;
     private String notes;
     private String gender;
-    private int age;
+    private String dateOfBirth;
     private Long fkMenuItemMostOrdered;
     private boolean membership;
     private boolean isVerified;
 
-    public CustomerModel(String firstName, String lastName, String phoneNumber, String address, String email, String password, String notes, String gender, int age) {
+    public CustomerModel(String firstName, String lastName, String phoneNumber, String address, String email, String password, String notes, String gender, String dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -24,10 +26,10 @@ public class CustomerModel {
         this.password = password;
         this.notes = notes;
         this.gender = gender;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public CustomerModel(long customerId, String firstName, String lastName, String phoneNumber, String address, String email, String password, String notes, String gender, int age, Long fkMenuItemMostOrdered, boolean membership, boolean isVerified) {
+    public CustomerModel(long customerId, String firstName, String lastName, String phoneNumber, String address, String email, String password, String notes, String gender, String dateOfBirth, Long fkMenuItemMostOrdered, boolean membership, boolean isVerified) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,7 +39,7 @@ public class CustomerModel {
         this.password = password;
         this.notes = notes;
         this.gender = gender;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.fkMenuItemMostOrdered = fkMenuItemMostOrdered;
         this.membership = membership;
         this.isVerified = isVerified;
@@ -123,12 +125,12 @@ public class CustomerModel {
         this.gender = gender;
     }
 
-    public int getAge() {
-        return age;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Long getFkMenuItemMostOrdered() {
