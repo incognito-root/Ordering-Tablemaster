@@ -134,7 +134,7 @@ public class CustomerService extends MainService {
         TypeReference<ApiResponse<OrderModel>> typeRef = new TypeReference<>() {
         };
 
-        HttpResponse<String> response = getRequest("customer/getCustomerMostFrequentOrder/" + Auth.customerId);
+        HttpResponse<String> response = getRequest("customer/getCustomerMostFrequentOrder/" + Auth.customerDetails.getCustomerId());
 
         ApiResponse<OrderModel> orderModel = mapper.readValue(response.body(), typeRef);
 
