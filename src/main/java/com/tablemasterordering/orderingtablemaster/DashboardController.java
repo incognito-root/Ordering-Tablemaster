@@ -127,7 +127,7 @@ public class DashboardController implements Initializable {
 
     public void searchOrders() {
 
-        if (query.isEmpty()) {
+        if (query == null || query.isEmpty()) {
             allOrdersTable.setItems(ordersBackup);
             return;
         }
